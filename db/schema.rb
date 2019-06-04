@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_091324) do
+ActiveRecord::Schema.define(version: 2019_06_04_115516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,22 +48,17 @@ ActiveRecord::Schema.define(version: 2019_06_04_091324) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mission_id"
   end
 
   create_table "missions", force: :cascade do |t|
     t.text "description"
-    t.bigint "staff_id"
     t.integer "staff_quantity"
     t.string "staff_planning"
-    t.bigint "training_id"
     t.integer "training_quantity"
-    t.bigint "equipment_id"
     t.integer "equipment_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["equipment_id"], name: "index_missions_on_equipment_id"
-    t.index ["staff_id"], name: "index_missions_on_staff_id"
-    t.index ["training_id"], name: "index_missions_on_training_id"
   end
 
   create_table "opportunities", force: :cascade do |t|
@@ -97,9 +92,10 @@ ActiveRecord::Schema.define(version: 2019_06_04_091324) do
     t.text "description"
     t.string "picture"
     t.float "worked_time_hourly_rate"
-    t.integer "closed_time_hourly_rate"
+    t.float "closed_time_hourly_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mission_id"
   end
 
   create_table "trainings", force: :cascade do |t|
@@ -110,6 +106,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_091324) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mission_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -137,9 +134,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_091324) do
 
   add_foreign_key "business_proposals", "quotations"
   add_foreign_key "clients", "users"
-  add_foreign_key "missions", "equipment"
-  add_foreign_key "missions", "staffs"
-  add_foreign_key "missions", "trainings"
   add_foreign_key "opportunities", "clients"
   add_foreign_key "opportunities", "users"
   add_foreign_key "quotations", "opportunities"

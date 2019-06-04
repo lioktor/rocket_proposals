@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :clients
+  has_many :opportunities
+  has_many :quotations, through: :opportunities
+  has_many :business_proposals, through: :quotations
 end
