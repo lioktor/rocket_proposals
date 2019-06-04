@@ -4,6 +4,33 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name,
+                required: true,
+                input_html: { autocomplete: "first_name" } %>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "last_name" } %>
+    <%= f.input :company,
+                required: true,
+                input_html: { autocomplete: "company" } %>
+    <%= f.input :function,
+                required: true,
+                input_html: { autocomplete: "function" } %>
+    <%= f.input :linkedin,
+                required: true,
+                input_html: { autocomplete: "linkedin" } %>
+    <%= f.input :avatar,
+                as: :file,
+                required: true,
+                input_html: { autocomplete: "avatar" } %>
+    <%= f.input :category,
+                required: true,
+                collection: ["Salesman", "Manager"],
+                input_html: { autocomplete: "category" } %>
+    <%= f.input :manager_id,
+                collection: User.where(category: "Manager"),
+                required: true,
+                input_html: { autocomplete: "xxxx" } %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
