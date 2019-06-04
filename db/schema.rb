@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_115516) do
     t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
-  create_table "equipment", force: :cascade do |t|
+  create_table "equipments", force: :cascade do |t|
     t.string "category"
     t.text "description"
     t.integer "cost"
