@@ -1,2 +1,25 @@
 <h1>Clients#new</h1>
 <p>Find me in app/views/clients/new.html.erb</p>
+
+<h3 class="h1-in-pages text-center">Would you like to add a mission?</h3>
+<p>Please complete:</p>
+<div class="narrow-form">
+  <%= simple_form_for [@client, @user] do |f| %>
+  <p>Company</p>
+  <%= f.input :company_siret %>
+  <%= f.input :company_name %>
+  <%= f.input :company_picture %>
+  <%= f.input :company_address %>
+  <%= f.input :company_sector %>
+  <p>Contact</p>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :linkedin %>
+  <%= f.input :category %>
+  <%= f.input :function %>
+  <%= f.input :last_name %>
+  <%= f.submit class: "btn btn-primary"%>
+  <% end %>
+</div>

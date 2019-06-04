@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-  resources :users
+  resources :users do
+    resources :client, only: [:new]
+  end
   resources :clients do
     resources :opportunities
   end
