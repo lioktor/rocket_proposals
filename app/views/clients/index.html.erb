@@ -1,2 +1,13 @@
 <h1>Clients#index</h1>
+<ul>
+  <% @clients.each do |client| %>
+  <li>Company: <%= client.company_name%>
+    SIRET: <%= client.company_SIRET %>
+    <%= client.company_address %>
+    Client name: <%= client.first_name %>
+    <%= client.last_name %>
+    <%= link_to client.email %>
+  </li>
+  <% end %>
+</ul>
 <p>Find me in app/views/clients/index.html.erb</p>
