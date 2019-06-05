@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_115516) do
+ActiveRecord::Schema.define(version: 2019_06_05_081247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 2019_06_04_115516) do
     t.bigint "opportunity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mission_id"
+    t.index ["mission_id"], name: "index_quotations_on_mission_id"
     t.index ["opportunity_id"], name: "index_quotations_on_opportunity_id"
   end
 
@@ -136,6 +138,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_115516) do
   add_foreign_key "clients", "users"
   add_foreign_key "opportunities", "clients"
   add_foreign_key "opportunities", "users"
+  add_foreign_key "quotations", "missions"
   add_foreign_key "quotations", "opportunities"
   add_foreign_key "users", "users", column: "manager_id"
 end
