@@ -84,11 +84,11 @@ opportunity_C = Opportunity.create!(name: "Opportunity C", description: "go and 
                 status: "", client_id: "3", user_id: "1")
 
 quotation_A = Quotation.create!(margin_rate: "5", selling_price: "3000", starting_date: "2019/06/21", end_date: "2019/07/21",
-              opportunity_id: "1")
+              opportunity_id: "1", mission_id: "1")
 quotation_B = Quotation.create!(margin_rate: "12", selling_price: "500", starting_date: "2019/08/21", end_date: "2019/12/21",
-              opportunity_id: "2")
+              opportunity_id: "2", mission_id: "1")
 quotation_C = Quotation.create!(margin_rate: "9", selling_price: "200", starting_date: "2019/06/21", end_date: "2020/06/21",
-              opportunity_id: "3")
+              opportunity_id: "3", mission_id: "1")
 
 mission_A = Mission.create!(description: "Protect Cadarache", staff_quantity: "20", staff_planning: "H24",
             training_quantity: "4", equipment_quantity: "12")
