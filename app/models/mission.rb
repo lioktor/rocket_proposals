@@ -1,6 +1,6 @@
 class Mission < ApplicationRecord
-  belongs_to :quotation
-  has_many :staff
-  has_many :training
-  has_many :equipment
+  belongs_to :quotation, optional: true
+  has_many :staffs
+  has_many :trainings
+  has_many :equipments
 end
