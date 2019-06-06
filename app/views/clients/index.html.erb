@@ -1,4 +1,12 @@
-<h1>Clients#index</h1>
+<h1>My Companies</h1>
+<%= form_tag clients_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for company"
+  %>
+<% end %>
+
 <ul>
   <% @clients.each do |client| %>
   <li>Company: <%= client.company_name%>
@@ -7,7 +15,9 @@
     Client name: <%= client.first_name %>
     <%= client.last_name %>
     <%= link_to client.email %>
+    <%= link_to 'more info', client_path(client) %>
   </li>
   <% end %>
 </ul>
-<p>Find me in app/views/clients/index.html.erb</p>
+
+<%= link_to 'Add a new company', new_client_path, class: "btn btn-primary" %>

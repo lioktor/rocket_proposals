@@ -1,16 +1,20 @@
 <h1>Clients#show</h1>
 <ul>
-  <li>Company: <%= @client.company_name  %></li>
-  <li>SIRET: <%= @client.company_SIRET %></li>
-  <li><%= @client.company_picture %></li>
-  <li>Address: <%= @client.company_address %></li>
-  <li>Sector of activity: <%= @client.activity_sector %></li>
-  <li>First name:<%= @client.first_name %></li>
-  <li>Last name: <%= @client.last_name %></li>
-  <li>email: <%= @client.email %></li>
-  <li>Phone: <%= @client.phone %></li>
-  <li>LinkedIn: <%= link_to @client.linkedin %></li>
-  <li>Category: <%= @client.category %></li>
-  <li>Function: <%= @client.function %></li>
+  <h2>Company</h2>
+    <li>Name: <%= @client.company_name  %></li>
+    <li>SIRET: <%= @client.company_SIRET %></li>
+    <li><%= @client.company_picture %></li>
+    <li>Address: <%= @client.company_address %></li>
+    <li>Sector of activity: <%= @client.activity_sector %></li>
+  <h2>Contact</h2>
+    <li>First name:<%= @client.first_name %></li>
+    <li>Last name: <%= @client.last_name %></li>
+    <li>email: <%= @client.email %></li>
+    <li>Phone: <%= @client.phone %></li>
+    <li>LinkedIn: <%= link_to @client.linkedin %></li>
+    <li>Category: <%= @client.category %></li>
+    <li>Function: <%= @client.function %></li>
+
 </ul>
-<p>Find me in app/views/clients/show.html.erb</p>
+<%= link_to 'Back to My companies', clients_path, class: "btn btn-primary" %>
+<%= link_to 'Create an opportunity', new_client_opportunity_path(@client), class: "btn btn-primary" %>

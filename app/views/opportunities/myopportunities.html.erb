@@ -1,0 +1,9 @@
+<ol>
+  <% @myopportunities.each do |opportunity| %>
+  <li><%= opportunity.name %>
+    <%= opportunity.description %>
+    <%= link_to 'Create a quotation', new_opportunity_quotation_path(opportunity) %>
+  </li>
+
+  <% end %>
+</l>

@@ -1,2 +1,22 @@
-<h1>Opportunities#new</h1>
-<p>Find me in app/views/opportunities/new.html.erb</p>
+<h1>Create a new opportunity</h1>
+<p>Please complete:</p>
+<div class="narrow-form">
+  <%= simple_form_for [@client, @opportunity] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :company, input_html: {value: @client.company_name}%>
+  <%= f.input :question_1,
+                required: true,
+                collection: ["Financial", "Technical", "Financial & Technical"],
+                input_html: { autocomplete: "category" }  %>
+    <%= f.input :question_2 ,
+                required: true,
+                collection: ["Financial", "Technical", "Financial & Technical"],
+                input_html: { autocomplete: "category" } %>
+    <%= f.input :question_3 ,
+                required: true,
+                collection: ["Financial", "Technical", "Financial & Technical"],
+                input_html: { autocomplete: "category" } %>
+    <%= f.submit class: "btn btn-primary"%>
+    <% end %>
+</div>
