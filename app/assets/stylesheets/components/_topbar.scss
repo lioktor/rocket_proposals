@@ -1,4 +1,8 @@
 // Topbar
+
+.toggled .topbar {
+  width: calc(100% - 70px);
+}
 .topbar {
   position: fixed !important;
   top: 0;
