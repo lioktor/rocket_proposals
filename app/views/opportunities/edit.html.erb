@@ -1,2 +1,25 @@
-<h1>Opportunities#edit</h1>
-<p>Find me in app/views/opportunities/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+      <h1>Update your opportunity</h1>
+        <%= simple_form_for [@client, @opportunity] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :company, input_html: {value: @client.company_name}%>
+          <%= f.input :question_1,
+                        required: true,
+                        collection: ["Financial", "Technical", "Financial & Technical"],
+                        input_html: { autocomplete: "category" }  %>
+            <%= f.input :question_2 ,
+                        required: true,
+                        collection: ["Financial", "Technical", "Financial & Technical"],
+                        input_html: { autocomplete: "category" } %>
+            <%= f.input :question_3 ,
+                        required: true,
+                        collection: ["Financial", "Technical", "Financial & Technical"],
+                        input_html: { autocomplete: "category" } %>
+            <%= f.submit class: "btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+</div>
