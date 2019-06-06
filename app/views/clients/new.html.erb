@@ -1,25 +1,30 @@
-<h1>Clients#new</h1>
 
-<p>Please complete:</p>
-<div class="narrow-form">
-  <%= simple_form_for @client do |f| %>
-  <h2>Company</h2>
-  <%= f.input :company_SIRET %>
-  <%= f.input :company_name %>
-  <%= f.input :company_picture %>
-  <%= f.input :company_address %>
-  <%= f.input :activity_sector %>
-  <h2>Contact</h2>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :phone %>
-  <%= f.input :linkedin %>
-  <%= f.input :category,
-              required: true,
-              collection: ["Financial", "Technical", "Financial & Technical"],
-              input_html: { autocomplete: "category" }  %>
-  <%= f.input :function %>
-  <%= f.submit class: "btn btn-primary"%>
-  <% end %>
-</div>
+          <h1 class="h3 mb-4 text-gray-800">Let's create a new client</h1>
+            <p>Please complete:</p>
+            <div class="narrow-form">
+              <%= simple_form_for @client do |f| %>
+              <h2>Company</h2>
+              <%= f.input :company_SIRET %>
+              <%= f.input :company_name %>
+              <%= f.input :company_picture %>
+              <%= f.input :company_address %>
+              <%= f.input :activity_sector %>
+              <h2>Contact</h2>
+              <%= f.input :first_name %>
+              <%= f.input :last_name %>
+              <%= f.input :email %>
+              <%= f.input :phone %>
+              <%= f.input :linkedin %>
+              <%= f.input :category,
+                          required: true,
+                          collection: ["Financial", "Technical", "Financial & Technical"],
+                          input_html: { autocomplete: "category" }  %>
+              <%= f.input :function %>
+              <%= f.submit class: "btn btn-primary"%>
+              <% end %>
+            </div>
+
+
+
+
+
