@@ -1,6 +1,11 @@
 class ClientsController < ApplicationController
   def index
-    @clients = Client.all
+    @user = current_user
+    if params[:query].present?
+      @clients = Client.where("company_name ILIKE ?", "%#{params[:query]}%")
+    else
+      @clients = Client.all
+    end
   end
 
   def new
@@ -9,8 +14,9 @@ class ClientsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @client = current_user.clients.build(client_params)
-    if @client_params.save
+    if @client.save
       redirect_to client_path(@client)
     else
       render :new
@@ -18,28 +24,32 @@ class ClientsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @client = Client.find(params[:id])
   end
 
   def update
+    @user = current_user
     @client = Client.find(params[:id])
     @client.update(client_params)
     redirect_to client_path(@client)
   end
 
   def show
+    @user = current_user
     @client = Client.find(params[:id])
   end
 
   def destroy
+    @user = current_user
     @client = Client.find(params[:id])
     @client.destroy
   end
 
   private
 
-  def clients_params
-    params.require(:clients).permit(:first_name,
+  def client_params
+    params.require(:client).permit(:first_name,
                                     :last_name,
                                     :category,
                                     :function,
