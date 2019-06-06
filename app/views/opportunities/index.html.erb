@@ -1,2 +1,11 @@
 <h1>Opportunities#index</h1>
-<p>Find me in app/views/opportunities/index.html.erb</p>
+<ul>
+  <% @opportunities.each do |opportunity| %>
+  <li>Agent <%= opportunity.user_id%>
+    Client: <%= opportunity.client_id %>
+    Name: <%= opportunity.name %>
+    Description: <%= opportunity.description %>
+
+  </li>
+  <% end %>
+</ul>

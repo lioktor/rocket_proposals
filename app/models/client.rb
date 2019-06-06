@@ -3,4 +3,6 @@ class Client < ApplicationRecord
   has_many :opportunities
   has_many :quotations, through: :opportunities
   has_many :business_proposals, through: :quotations
+
+  mount_uploader :company_picture, PhotoUploader
 end
