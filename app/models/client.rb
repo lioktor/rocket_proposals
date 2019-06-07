@@ -5,4 +5,7 @@ class Client < ApplicationRecord
   has_many :business_proposals, through: :quotations
 
   mount_uploader :company_picture, PhotoUploader
+
+  geocoded_by :company_address
+  after_validation :geocode, if: :will_save_change_to_company_address?
 end
