@@ -12,16 +12,18 @@ Rails.application.routes.draw do
     end
   end
 
-resources :quotations do
-  resources :missions, only: [:new]
-end
+# resources :quotations do
+#   resources :missions, only: [:new, :create]
+# end
 
   resources :missions do
     resources :trainings, only: [:index, :new, :show]
   end
 
   resources :opportunities, only: [:index] do
-      resources :quotations, only: [:index, :new, :show, :edit, :update]
+      resources :quotations, only: [:index, :new, :show, :edit, :update, :create] do
+        resources :missions, only: [:new, :create, :destroy]
+      end
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

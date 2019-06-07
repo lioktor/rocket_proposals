@@ -4,15 +4,9 @@
     <h1>Quotations#new</h1>
       <%= simple_form_for [@opportunity, @quotation] do |f| %>
       <%= f.input :margin_rate%>
-      <%= f.input :selling_price%>
       <%= f.input :starting_date%>
       <%= f.input :end_date%>
-      Mission
-      <%= simple_form_for [@opportunity, @quotation] do |f| %>
-        <%= f.input :margin_rate%>
-        <%= link_to 'add a mission', new_mission_path, class: "btn btn-primary" %>
-        <% end %>
-      <%= f.submit 'Create a quotation', class: "btn btn-primary"%>
+      <%= f.submit 'Create a mission', class: "btn btn-primary"%>
       <% end %>
     </div>
   </div>

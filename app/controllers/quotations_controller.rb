@@ -1,6 +1,7 @@
 class QuotationsController < ApplicationController
   def index
     @quotations = Quotation.all
+    @opportunity = Opportunity.find(params[:opportunity_id])
   end
 
   def new
@@ -9,13 +10,11 @@ class QuotationsController < ApplicationController
   end
 
   def create
-    @opportunity = Expertise.find(params[:opportunity_id])
-    @quotation = current_user.quotations.build(quotation_params)
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    @quotation = Quotation.new(quotation_params)
     @quotation.opportunity = @opportunity
-    # @quotation.price = (@quotation.end_date - @quotation.starting_date) * @margin_rate
-
     if @quotation.save
-      redirect_to quotation_path(@quotation)
+      redirect_to new_opportunity_quotation_mission_path(@opportunity, @quotation)
     else
       @opportunity = Opportunity.new
       render :new
@@ -34,6 +33,7 @@ class QuotationsController < ApplicationController
 
   def show
     @quotation = Quotation.find(params[:id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
   end
 
   def destroy
