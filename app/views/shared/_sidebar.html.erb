@@ -26,15 +26,13 @@
         Interface
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Pages Opportunities Collapse Menu  -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOpportunities" aria-expanded="true" aria-controls="collapseOpportunities">
           <i class="fas fa-fw fa-cog"></i>
-          <span>
-          Opportunities
-          </span>
+          <span>Opportunities</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseOpportunities" class="collapse" aria-labelledby="headingOpportunities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
             <%= link_to 'List', opportunities_path, class: "collapse-item" %>
@@ -43,20 +41,47 @@
         </div>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
+      <!-- Nav Item - Pages Clients Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClients" aria-expanded="true" aria-controls="collapseClients">
+          <i class="fas fa-address-book"></i>
           <span>Clients</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseClients" class="collapse" aria-labelledby="headingClients" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-
-
             <%= link_to 'List', clients_path, class: "collapse-item" %>
 
             <%= link_to 'create', new_client_path, class: "collapse-item" %>
+          </div>
+        </div>
+      </li>
 
+<!-- Nav Item - Pages Quotations Collapse Menu -->
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseQuotations" aria-expanded="true" aria-controls="collapseQuotations">
+        <i class="fas fa-euro-sign"></i>
+          <span>Quotations</span>
+        </a>
+        <div id="collapseQuotations" class="collapse" aria-labelledby="headingQuotations" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <%= link_to 'List', quotations_path, class: "collapse-item" %>
+
+            <%= link_to 'create', new_quotation_path, class: "collapse-item" %>
+          </div>
+        </div>
+      </li>
+
+<!-- Nav Item - Pages Memoire Collapse Menu -->
+
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMemoire" aria-expanded="true" aria-controls="collapseMemoire">
+          <i class="fa fa-eur" aria-hidden="true"></i>
+          <span>Memoire</span>
+        </a>
+        <div id="collapseMemoire" class="collapse" aria-labelledby="headingMemoire" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <%= link_to 'List', quotations_path, class: "collapse-item" %>
+            <%= link_to 'create', new_quotation_path, class: "collapse-item" %>
           </div>
         </div>
       </li>
