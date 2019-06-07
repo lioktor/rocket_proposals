@@ -27,10 +27,21 @@ class OpportunitiesController < ApplicationController
   end
 
   def edit
+    @client = Client.find(params[:client_id])
+    @opportunity = Opportunity.find(params[:id])
   end
 
   def update
+    @opportunity = Opportunity.find(params[:id])
+    @client = Client.find(params[:client_id])
     @opportunity.update(opportunity_params)
+    redirect_to myopportunities_client_opportunities_path
+  end
+
+  def destroy
+    @opportunity = Opportunity.find(params[:id])
+    @opportunity.destroy
+    redirect_to myopportunities_client_opportunities_path
   end
 
   def show

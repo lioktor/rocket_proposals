@@ -84,18 +84,18 @@ opportunity_C = Opportunity.create!(name: "Opportunity C", description: "go and 
                 status: "", client_id: "3", user_id: "1")
 
 mission_A = Mission.create!(description: "Protect Cadarache", staff_quantity: "20", staff_planning: "H24",
-            training_quantity: "4", equipment_quantity: "12")
+            training_quantity: "4", equipment_quantity: "12", quotation_id: 2)
 mission_B = Mission.create!(description: "Protect Le Wagon", staff_quantity: "50", staff_planning: "H24",
-            training_quantity: "2", equipment_quantity: "2")
+            training_quantity: "2", equipment_quantity: "2", quotation_id: 1)
 mission_C = Mission.create!(description: "Protect La Bonne Mère", staff_quantity: "100", staff_planning: "H24",
-            training_quantity: "5", equipment_quantity: "20")
+            training_quantity: "5", equipment_quantity: "20", quotation_id: 1)
 
 quotation_A = Quotation.create!(margin_rate: "5", selling_price: "3000", starting_date: "2019/06/21", end_date: "2019/07/21",
-              opportunity_id: "1", mission_id: Mission.last.id)
+              opportunity_id: "1")
 quotation_B = Quotation.create!(margin_rate: "12", selling_price: "500", starting_date: "2019/08/21", end_date: "2019/12/21",
-              opportunity_id: "2", mission_id: Mission.last.id)
+              opportunity_id: "2")
 quotation_C = Quotation.create!(margin_rate: "9", selling_price: "200", starting_date: "2019/06/21", end_date: "2020/06/21",
-              opportunity_id: "3", mission_id: Mission.last.id)
+              opportunity_id: "3")
 
 equipement_A = Equipment.create!(category: "chien", description: "4 legs", cost: "500", picture: "https://img.chewy.com/is/image/catalog/139500_Main._SY630_V1548179221_.jpg")
 equipement_B = Equipment.create!(category: "black jacket", description: "dark jacket", cost: "20", picture: "https://4.imimg.com/data4/SG/JC/MY-22995117/security-guard-jacket-500x500.jpg")

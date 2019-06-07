@@ -1,2 +1,19 @@
-<h1>Quotations#new</h1>
-<p>Find me in app/views/quotations/new.html.erb</p>
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+    <h1>Quotations#new</h1>
+      <%= simple_form_for [@opportunity, @quotation] do |f| %>
+      <%= f.input :margin_rate%>
+      <%= f.input :selling_price%>
+      <%= f.input :starting_date%>
+      <%= f.input :end_date%>
+      Mission
+      <%= simple_form_for [@opportunity, @quotation] do |f| %>
+        <%= f.input :margin_rate%>
+        <%= link_to 'add a mission', new_mission_path, class: "btn btn-primary" %>
+        <% end %>
+      <%= f.submit 'Create a quotation', class: "btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+</div>
