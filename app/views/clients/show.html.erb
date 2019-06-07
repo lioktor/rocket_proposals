@@ -3,7 +3,7 @@
   <h2>Company</h2>
     <li>Name: <%= @client.company_name  %></li>
     <li>SIRET: <%= @client.company_SIRET %></li>
-    <li><%= @client.company_picture %></li>
+    <li><%= cl_image_tag @client.company_picture, height: 300, width: 400, crop: :fill %></li>
     <li>Address: <%= @client.company_address %></li>
     <li>Sector of activity: <%= @client.activity_sector %></li>
   <h2>Contact</h2>
@@ -18,3 +18,5 @@
 </ul>
 <%= link_to 'Back to My companies', clients_path, class: "btn btn-primary" %>
 <%= link_to 'Create an opportunity', new_client_opportunity_path(@client), class: "btn btn-primary" %>
+
+

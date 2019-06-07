@@ -15,7 +15,31 @@
       <%= render 'shared/sidebar' %>
       <div style="width: 100%;">
         <%= render 'shared/topbar' %>
-        <%= yield %>
+        <div>
+          <%= render 'shared/wrapper' %>
+        </div>
+        <div id="content-wrapper" class="d-flex flex-column">
+  <!-- Main Content -->
+  <div id="content">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+      <!-- Page Heading -->
+     <%= yield %>
+    </div>
+  </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- End of Main Content -->
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright © Your Website 2019</span>
+      </div>
+    </div>
+  </footer>
+  <!-- End of Footer -->
+</div>
       </div>
     </div>
 
