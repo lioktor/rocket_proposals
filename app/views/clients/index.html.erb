@@ -8,15 +8,28 @@
   %>
 <% end %>
 
-<ul>
-  <% @clients.each do |client| %>
-  <li>Company: <%= client.company_name%>
-    SIRET: <%= client.company_SIRET %>
-    <%= client.company_address %>
-    Client name: <%= client.first_name %>
-    <%= client.last_name %>
-    <%= link_to client.email %>
-    <%= link_to 'more info', client_path(client) %>
-  </li>
-  <% end %>
-</ul>
+<div>
+  <ul>
+    <% @clients.each do |client| %>
+    <li>Company: <%= client.company_name%>
+      SIRET: <%= client.company_SIRET %>
+      <%= client.company_address %>
+      Client name: <%= client.first_name %>
+      <%= client.last_name %>
+      <%= link_to client.email %>
+      <%= link_to 'more info', client_path(client) %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+
+<%= link_to 'Add a new company', new_client_path, class: "btn btn-primary" %>
+

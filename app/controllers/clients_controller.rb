@@ -4,7 +4,13 @@ class ClientsController < ApplicationController
     if params[:query].present?
       @clients = Client.where("company_name ILIKE ?", "%#{params[:query]}%")
     else
-      @clients = Client.all
+      @clients = Client..where.not(latitude: nil, longitude: nil)
+      @markers = @clients.map do |client|
+        {
+          lat: client.latitude,
+          lng: client.longitude
+        }
+      end
     end
   end
 
