@@ -1,6 +1,7 @@
 class MissionsController < ApplicationController
   def index
     @missions = Mission.all
+    @staffs = Staffs.all
   end
 
   def new
