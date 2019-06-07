@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 resources :quotations do
   resources :missions, only: [:new]
+end
 
   resources :missions do
     resources :trainings, only: [:index, :new, :show]
