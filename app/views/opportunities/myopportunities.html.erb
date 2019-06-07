@@ -1,9 +1,16 @@
-<ol>
-  <% @myopportunities.each do |opportunity| %>
-  <li><%= opportunity.name %>
-    <%= opportunity.description %>
-    <%= link_to 'Create a quotation', new_opportunity_quotation_path(opportunity) %>
-  </li>
-
-  <% end %>
-</l>
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+    <ol>
+      <% @myopportunities.each do |opportunity| %>
+      <li><%= opportunity.name %>
+        <%= opportunity.description %>
+        <%= link_to 'Create a quotation', new_opportunity_quotation_path(opportunity), class: "btn btn-secondary" %>
+        <%= link_to 'Edit this opportunity', edit_client_opportunity_path(opportunity.client, opportunity), data: { confirm: "Are u sure you want to edit?"}, class: "btn btn-secondary" %>
+        <%= link_to 'Remove this opportunity', client_opportunity_path(opportunity.client, opportunity), method: :delete, class: "btn btn-secondary"  %>
+      </li>
+      <% end %>
+    </ol>
+    </div>
+  </div>
+</div>

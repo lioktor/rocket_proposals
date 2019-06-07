@@ -5,7 +5,7 @@ class MissionsController < ApplicationController
 
   def new
     @mission = Mission.new
-    @quotation = Quotation.find(params[:quotation_id])
+    # @quotation = Quotation.find(params[:quotation_id])
   end
 
   def create
