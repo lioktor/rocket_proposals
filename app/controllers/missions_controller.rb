@@ -5,15 +5,18 @@ class MissionsController < ApplicationController
 
   def new
     @mission = Mission.new
-    # @quotation = Quotation.find(params[:quotation_id])
+    @quotation = Quotation.find(params[:quotation_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
+
   end
 
   def create
     @quotation = Quotation.find(params[:quotation_id])
-    @mission = current_user.missions.build(mission_params)
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    @mission = Mission.new(mission_params)
     @mission.quotation = @quotation
     if @mission.save
-      redirect_to mission_path(@mission)
+      redirect_to opportunity_quotation_path(@opportunity, @quotation)
     else
       @quotation = Quotation.new
       render :new

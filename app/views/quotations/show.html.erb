@@ -1,2 +1,16 @@
-<h1>Quotations#show</h1>
-<p>Find me in app/views/quotations/show.html.erb</p>
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+      <ul>
+        <% @quotation.missions.each do |mission, index| %>
+        <li> <%= @quotation.opportunity.name %>
+          Mission: <%= index %><%= mission.description %>
+          <%= link_to 'Add a mission', new_opportunity_quotation_mission_path(@opportunity, @quotation) %><%= link_to 'Remove this mission', new_opportunity_quotation_mission_path(@opportunity, @quotation) %>
+
+           <%= link_to 'Validate this quotation', new_opportunity_quotation_mission_path(@opportunity, @quotation) %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

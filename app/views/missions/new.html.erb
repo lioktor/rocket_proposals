@@ -1,7 +1,25 @@
 
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+    <h1>New mission</h1>
+        <%= simple_form_for [@opportunity, @quotation, @mission] do |f| %>
+        <%= f.input :description%>
+        <%= f.input :staff_quantity%>
+        <%= f.input :staff_planning ,
+                     required: true,
+                     collection: ["H24", "H7-19"],
+                     input_html: { autocomplete: "category" }  %>
+        <%= f.input :training_quantity%>
+        <%= f.input :equipment_quantity%>
+        <%= f.submit 'Add this mission', class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</div>
 
-    <h1>Missions#new</h1>
-    <p>Find me in app/views/missions/new.html.erb</p>
+
+
 
 
 
