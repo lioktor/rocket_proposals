@@ -4,11 +4,13 @@ class ClientsController < ApplicationController
     if params[:query].present?
       @clients = Client.where("company_name ILIKE ?", "%#{params[:query]}%")
     else
-      @clients = Client..where.not(latitude: nil, longitude: nil)
+      @clients = Client.where.not(latitude: nil, longitude: nil)
       @markers = @clients.map do |client|
         {
           lat: client.latitude,
-          lng: client.longitude
+          lng: client.longitude,
+          infowindow: render_to_string(partial: "infowindow", locals: { client: client }),
+          image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
         }
       end
     end
