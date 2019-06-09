@@ -1,12 +1,17 @@
 class MissionsController < ApplicationController
   def index
     @missions = Mission.all
+
   end
 
   def new
     @mission = Mission.new
     @quotation = Quotation.find(params[:quotation_id])
     @opportunity = Opportunity.find(params[:opportunity_id])
+    @staffs = Staff.all
+    @staffs = @staffs.map do |staff|
+      staff = staff.category
+    end
 
   end
 
