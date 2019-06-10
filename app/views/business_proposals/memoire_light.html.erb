@@ -1,0 +1,203 @@
+<!-- ---------------------------------1st PAGE of the proposition------------------------------------ -->
+
+<div class="row">
+  <!-- Ajouter ici, sur une même ligne le logo  SecurExperts (a gauche) et le logo Airbus (à droite)-->
+</div>
+
+
+
+<div class="row">
+  <!-- On veut intégrer une image type "banner", qui prenne environ 1/3 de la page et sur laquelle on va incrsuter le H1 ci-après -->
+  <%= cl_image_tag("security_memoire_banner.jpg",
+      width: 400, height: 300, crop: :fill) %>
+  <!-- Dans le H1 on veut faire apparaitre en gras le nom de l'opportunité, sur une ligne séparée de "Commercial proposal for" -->
+  <h1>
+    Commercial proposal for
+    <%= @opportunity.name %>
+  </h1>
+</div>
+
+<div class="row">
+  <h4>Salesman in charge :</h2>
+    <div>
+      <ul>
+        <li><%= current_user.first_name %> <%= current_user.last_name %></li>
+        <li><%= current_user.email %></li>
+        <li><%= current_user.phone %></li>
+      </ul>
+    </div>
+    <div>
+      <%= current_user.avatar %>
+    </div>
+</div>
+
+
+
+<!-- ---------------------------------2nd PAGE of the proposition------------------------------------ -->
+
+
+<div class="row">
+  <h2>Company's presentation</h2>
+</div>
+
+  <div class="row">
+    <h3>Who we are</h3>
+      <div>
+        <p>  <!-- le paragraphe ci-dessous doit prendre les 2/3 gauche de la page -->
+          <strong>SecurExperts</strong> has been founded in 1985, so we have a huge experience in securising sensitive sites thanks to our experienced staff and our organization structures around 10 offices in France for a strong proximity with our customers.
+          Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+          Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+          Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+        </p>
+      </div>
+      <div> <!-- ci-dessous on intégre une image sur le 1/3 droit de la page avecune image des impalntations des agences de SecurExperts -->
+        <%= cl_image_tag("http://res.cloudinary.com/dmeiwlskm/image/upload/v1560178039/modvwrw8cl6tti9rkgmr.png",
+        width: 400, height: 300, crop: :fill) %>
+      </div>
+  </div>
+
+  <div class="row">
+    <h3>Some references</h3>
+      <p>
+        The biggest French companies trust SecurExperts and ask us to manage the security oraganization on their sites :
+      </p>
+      <ul>
+        <li>ITER Cadarache</li>
+        <li>EDF La Défense tower</li>
+        <li>Ministry of Economy Bercy site</li>
+        <li>Total Feyzin petrochemical plant</li>
+        <li>EDF nuclaer plant of Le Bugey</li>
+        <li>...</li>
+      </ul>
+  </div>
+
+
+
+  <div class="row">
+    <h3>Our expertise on <%= @opportunity.question_2 %> sites</h3>
+      <div>
+        <!-- le paragraphe ci-dessous doit s'incruster automatiquement en fonction du choix à la question 2. Par exemple si on a choisi "Industrie", on affichera ici le paragraphe relatif à notre expertise dans le domaine indiustriel -->
+        xxx ecrire methode pe récupérer le paragraphe adéquat
+        <% if @opportunity.question_2 == "Industrial" %>
+          <%=  <p>INDUSTRIAL Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.</p> %>
+        <% elsif @opportunity.question_2 == "Tertiary" %>
+          <%=  <p>TERTIARY Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.</p> %>
+        <% else %>
+          <%= <p>EVENTS Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.</p>  %>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+
+<!-- ---------------------------------3rd PAGE of the proposition------------------------------------ -->
+
+<div class="row">
+  <h2>Our technical proposal</h2>
+</div>
+
+<div class="row">
+  <h3>Missions résumé</h3>
+  <table>
+    <!--  inclure ici un tableau avec pour chaque mission, et sur 3 lignes, les informations relatives au staff, aux equipments et aux trainings (voir document papier)  -->
+  </table>
+</div>
+
+<div class="row">
+  <h3>Focus on each mission</h3>
+<!-- ci-dessous on veut afficher pour chaque mission une card pour le staff, une card pour les equipments et une card pour les trainings (voir document papier pour plus de précision). Appliquer un for.each-->
+    <%  @missions.each do |mission| %>
+      <h4>Mission <%= mission.description %></h4>
+        <h5 class="card xxxxx">Staff</h5>
+        <% mission.staffs.each do |staff|%>
+          <%= staff.category %>
+          <%= staff.description %>
+          <%= staff.picture %>
+        <% end %>
+        <h5 class="card xxxxx">Equipment</h5>
+        <% mission.equipments.each do |equipment|%>
+          <%= equipment.category %>
+          <%= equipment.description %>
+          <%= equipment.picture %>
+        <% end %>
+        <% end %>
+        <h5 class="card xxxxx">Training</h5>
+        <% mission.trainings.each do |training|%>
+          <%= training.category %>
+          <%= training.description %>
+          <%= training.icon %>
+        <% end %>
+    <% end %>
+</div>
+
+
+<!-- ---------------------------------4th PAGE of the proposition------------------------------------ -->
+
+<div class="row">
+  <h2>Financial offer</h2>
+</div>
+
+<div class="row">
+  <h3>Client</h3>
+    <p><strong><%= @client.company_name %></strong></p>
+    <p><%= @client.company_address %></p>
+    <p><%= @client.first_name %> <%= client.last_name %></p>
+    <p><%= @client.email %></p>
+</div>
+
+<div class="row">
+  <h3>Project</h3>
+    <p><strong><%= @opportunity.name %></strong></p>
+    <p><%= @opportunity.description %></p>
+</div>
+
+<div class="row">
+  <h3>Detailed price</h3>
+
+
+    <table>
+      <!-- foreach xxx-->
+      <% @missions.each do |mission| %>
+        <h4>Mission : <%= mission.description %></h4>
+      <!--  inclure ici un tableau avec pour chaque mission, et sur 3 lignes, les informations relatives au staff, aux equipments et aux trainings (voir document papier)  -->
+          <% mission.staffs.each do |staff|%>
+            <%= staff.category %>
+            <%= staff.description %>
+            <%= staff.picture %>
+          <% end %>
+          <% mission.equipments.each do |equipment|%>
+            <%= equipment.category %>
+            <%= equipment.description %>
+            <%= equipment.picture %>
+          <% end %>
+          <% mission.trainings.each do |training|%>
+            <%= training.category %>
+            <%= training.description %>
+            <%= training.icon %>
+          <% end %>
+      <% end %>
+
+        <h4><strong>Total price / year</strong></h4>
+    </table>
+</div>
+
+
+
+<!-- ---------------------------------5th PAGE of the proposition------------------------------------ -->
+
+
+<div class="row">
+  <h2>Terms and Conditions</h2>
+  <p>
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+    Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
+  </p>
+</div>
