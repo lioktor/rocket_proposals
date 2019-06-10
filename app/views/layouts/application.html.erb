@@ -14,7 +14,11 @@
     <div class="d-flex">
       <%= render 'shared/sidebar' %>
       <div style="width: 100%;">
+        <% if user_signed_in? %>
         <%= render 'shared/topbar' %>
+        <% else %>
+        <%= render 'shared/unlog_topbar'%>
+        <% end %>
         <div>
           <%= render 'shared/wrapper' %>
         </div>
@@ -34,7 +38,7 @@
   <footer class="sticky-footer bg-white">
     <div class="container my-auto">
       <div class="copyright text-center my-auto">
-        <span>Copyright © Your Website 2019</span>
+        <span></span>
       </div>
     </div>
   </footer>
