@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
 Mission.destroy_all
-Opportunity.destroy_all
 Client.destroy_all
+User.destroy_all
+Opportunity.destroy_all
 BusinessProposal.destroy_all
 Quotation.destroy_all
 Staff.destroy_all
@@ -69,7 +69,7 @@ client_A = Client.create!(first_name: "Princess", last_name: "Peach", email: "pr
            user_id: "1", latitude: 48.862725, longitude: 2.287592)
 client_B = Client.create!(first_name: "Donkey", last_name: "Kong", email: "donkey.kong@gmail.com", phone: "06.06.06.06", linkedin: "https://www.linkedin.com/in/donkey-kong-ba978054",
            category: "", function: "", company_name: "Le Wagon Marseille", company_SIRET: 43953501400013,
-           company_picture: "https://www.archimag.com/sites/archimag.com/files/styles/article/public/web_articles/image/Nintendo.jpg?itok=g-3amfI2", company_address: "", activity_sector: "",
+           company_picture: "https://www.archimag.com/sites/archimag.com/files/styles/article/public/web_articles/image/Nintendo.jpg", company_address: "", activity_sector: "",
            user_id: "2", latitude: 43.296174, longitude: 5.369953)
 client_C = Client.create!(first_name: "Zelda", last_name: "Link", email: "zelda.link@gmail.com", phone: "06.06.06.06", linkedin: "https://www.linkedin.com/in/zelda-link-ba978054",
            category: "", function: "", company_name: "The Camp", company_SIRET: 80856718400029,
