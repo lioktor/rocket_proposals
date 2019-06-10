@@ -4,9 +4,9 @@
   width: calc(100% - 70px);
 }
 .topbar {
-  position: fixed !important;
+  // position: fixed !important;
   top: 0;
-  width: calc(100% - 224px);
+  width: 100%;
   height: $topbar-base-height;
   #sidebarToggleTop {
     height: 2.5rem;
