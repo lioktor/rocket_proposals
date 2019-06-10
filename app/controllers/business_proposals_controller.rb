@@ -1,6 +1,8 @@
 class BusinessProposalsController < ApplicationController
   before_action :set_opportunity, only: [:show, :edit, :update]
 
+  layout :pdf, only: :memoire_light
+
   def index
     @business_proposals = BusinessProposal.all
   end
@@ -39,4 +41,24 @@ private
   def business_proposal_params
     params.require(:business_proposal).permit(:quotation_id)
   end
+
+  def memoire_light
+    @user = current_user
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    @client = Client.find(params[:client_id])
+    @missions = Mission.where(quotation_id: @quotation_id)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"   # Excluding ".pdf" extension.
+      end
+    end
+  end
+
+
+
+
+
+
 end

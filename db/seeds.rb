@@ -106,6 +106,10 @@ staff_A = Staff.create!(category: "fireman", description: "guy in red", picture:
 staff_B = Staff.create!(category: "guard", description: "guy in blue", picture: "https://lscdn.azureedge.net/biz-live/img/-iss-security-services--10425160-c8a99316.jpeg", worked_time_hourly_rate: "2.5",
           closed_time_hourly_rate: "8.0")
 
+mission_staff_A = MissionStaff.new(mission: mission_A, staff: staff_A)
+mission_staff_B = MissionStaff.new(mission: mission_B, staff: staff_B)
+mission_staff_C = MissionStaff.new(mission: mission_C, staff: staff_C)
+
 training_A = Training.create!(category: "cybersecuriry", description: "take care of your computer", educational_cost: "5500", duration: "31",
              icon: "https://static.thenounproject.com/png/1461016-200.png", mission_id: "1")
 training_B = Training.create!(category: "fire protection", description: "drink water", educational_cost: "2000", duration: "5",

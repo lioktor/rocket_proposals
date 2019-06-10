@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_140211) do
+ActiveRecord::Schema.define(version: 2019_06_10_161053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,33 @@ ActiveRecord::Schema.define(version: 2019_06_07_140211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "mission_id"
+  end
+
+  create_table "mission_equipments", force: :cascade do |t|
+    t.bigint "mission_id"
+    t.bigint "equipment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_id"], name: "index_mission_equipments_on_equipment_id"
+    t.index ["mission_id"], name: "index_mission_equipments_on_mission_id"
+  end
+
+  create_table "mission_staffs", force: :cascade do |t|
+    t.bigint "mission_id"
+    t.bigint "staff_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mission_id"], name: "index_mission_staffs_on_mission_id"
+    t.index ["staff_id"], name: "index_mission_staffs_on_staff_id"
+  end
+
+  create_table "mission_trainings", force: :cascade do |t|
+    t.bigint "mission_id"
+    t.bigint "training_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mission_id"], name: "index_mission_trainings_on_mission_id"
+    t.index ["training_id"], name: "index_mission_trainings_on_training_id"
   end
 
   create_table "missions", force: :cascade do |t|
@@ -137,6 +164,12 @@ ActiveRecord::Schema.define(version: 2019_06_07_140211) do
 
   add_foreign_key "business_proposals", "quotations"
   add_foreign_key "clients", "users"
+  add_foreign_key "mission_equipments", "equipments"
+  add_foreign_key "mission_equipments", "missions"
+  add_foreign_key "mission_staffs", "missions"
+  add_foreign_key "mission_staffs", "staffs"
+  add_foreign_key "mission_trainings", "missions"
+  add_foreign_key "mission_trainings", "trainings"
   add_foreign_key "opportunities", "clients"
   add_foreign_key "opportunities", "users"
   add_foreign_key "quotations", "opportunities"
