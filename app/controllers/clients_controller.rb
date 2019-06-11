@@ -10,7 +10,7 @@ class ClientsController < ApplicationController
           lat: client.latitude,
           lng: client.longitude,
           infowindow: render_to_string(partial: "infowindow", locals: { client: client }),
-          image_url: "https://res.cloudinary.com/dmeiwlskm/image/upload/v1560110455/tq7tgabicg59ukbycsqs.png"
+          image_url: helpers.asset_url('https://res.cloudinary.com/dmeiwlskm/image/upload/v1560110455/tq7tgabicg59ukbycsqs.png')
         }
       end
     end
