@@ -1,10 +1,23 @@
-<h1>Opportunities#index</h1>
-<ul>
-  <% @opportunities.each do |opportunity| %>
-  <li>Agent <%= opportunity.user_id%>
-    Client: <%= opportunity.client_id %>
-    Name: <%= opportunity.name %>
-    Description: <%= opportunity.description %>
-  </li>
+
+<% if current_user.function == "Manager" %>
+  <ul>
+    <% @opportunities.each do |opportunity| %>
+    <li>Agent <%= opportunity.user_id%>
+      Client: <%= opportunity.client_id %>
+      Name: <%= opportunity.name %>
+      Description: <%= opportunity.description %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  <% @user = current_user %>
+  <% @opp = Opportunity.where(user_id: @user.id)%>
+  <ul>
+    <% @opp.each do |opp| %>
+    <li> <%= opp.name %>
+         <%= opp.description %>
+         <%= opp.status %>
+    </li>
   <% end %>
-</ul>
+  </ul>
+<% end %>

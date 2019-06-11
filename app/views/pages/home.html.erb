@@ -3,7 +3,7 @@
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <%= link_to(new_client_path, class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm") do %>
+        <%= link_to(clients_path, class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm") do %>
          <i class="fas fa-download fa-sm text-white-50"></i>
         Generate Opportunity
       <% end %>
@@ -42,31 +42,7 @@
         </div>
       </div>
     </div>
-    <!-- Earnings (Monthly) Card Example -->
-    <!-- <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-info shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-              <div class="row no-gutters align-items-center">
-                <div class="col-auto">
-                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%= current_user.objective_done / current_user.annual_objective %></div>
-                </div>
-                <div class="col">
-                  <div class="progress progress-sm mr-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+
     <!-- Pending Requests Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-warning shadow h-100 py-2">
@@ -92,7 +68,7 @@
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold text-primary">Opportunities in progress</h6>
-          <div class="dropdown no-arrow">
+<!--           <div class="dropdown no-arrow">
             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
             </a>
@@ -103,7 +79,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- Card Body -->
         <div class="card-body" id=scroll-div>
@@ -118,14 +94,15 @@
                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 112px;">Status</th>
               </tr>
             </thead>
-            <tfoot>
+           <!--  <tfoot>
               <tr>
                 <th rowspan="1" colspan="1">Name</th>
                 <th rowspan="1" colspan="1">Description</th>
                 <th rowspan="1" colspan="1">Status</th>
-              </tfoot>
+              </tfoot> -->
               <tbody>
-                <%  @opp = Opportunity.where(params[user_session])%>
+                <% @user = current_user %>
+                <% @opp = Opportunity.where(user_id: @user.id)%>
                   <% @opp.each do |opp| %>
                 <tr role="row" class="odd"  >
                   <td ><%= opp.name %></td>
