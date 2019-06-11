@@ -864,7 +864,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: 1.75rem;
+  font-size: 24px;
 }
 
 h4, .h4 {
@@ -2150,6 +2150,7 @@ pre code {
   width: 100%;
   margin-bottom: 1rem;
   color: #858796;
+   font-size: 12px;
 }
 
 .table th,
@@ -2166,11 +2167,13 @@ pre code {
 
 .table tbody + tbody {
   border-top: 2px solid #e3e6f0;
+
 }
 
 .table-sm th,
 .table-sm td {
   padding: 0.3rem;
+
 }
 
 .table-bordered {
@@ -2491,7 +2494,7 @@ pre code {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 80%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
