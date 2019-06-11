@@ -1,5 +1,5 @@
 class Training < ApplicationRecord
-  belongs_to :mission, optional: true
+  has_many :missions, through: :mission_trainings, optional: true
 
   mount_uploader :icon, PhotoUploader
 end

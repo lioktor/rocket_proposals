@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
 Mission.destroy_all
-Opportunity.destroy_all
 Client.destroy_all
+User.destroy_all
+Opportunity.destroy_all
 BusinessProposal.destroy_all
 Quotation.destroy_all
 Staff.destroy_all
@@ -80,8 +80,8 @@ client_A.save!
 
 client_B = Client.create!(first_name: "Donkey", last_name: "Kong", email: "donkey.kong@gmail.com", phone: "06.06.06.06", linkedin: "https://www.linkedin.com/in/donkey-kong-ba978054",
            category: "", function: "", company_name: "Le Wagon Marseille", company_SIRET: 43953501400013,
-           company_address: "", activity_sector: "",
-           user_id: "2", latitude: 43.296174, longitude: 5.369953)
+
+           company_address: "", activity_sector: "", user_id: "2", latitude: 43.296174, longitude: 5.369953)
 client_B.remote_company_picture_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1559727721/p36ypk5cqscd7wdkbm9i.jpg"
 client_B.save!
 
@@ -145,4 +145,10 @@ training_A.save!
 training_B = Training.create!(category: "fire protection", description: "drink water", educational_cost: "2000", duration: "5", mission_id: "2")
 training_B.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1559727945/h54sajtohtsrpvmnczug.png"
 training_B.save!
+
+mission_staff_A = MissionStaff.new(mission: mission_A, staff: staff_A)
+mission_staff_B = MissionStaff.new(mission: mission_B, staff: staff_B)
+mission_staff_C = MissionStaff.new(mission: mission_C, staff: staff_C)
+
+
 

@@ -1,5 +1,5 @@
 class Equipment < ApplicationRecord
-  belongs_to :mission, optional: true
+  has_many :missions, through: :mission_equipments, optional: true
 
   mount_uploader :picture, PhotoUploader
 end
