@@ -66,7 +66,7 @@ user_B.remote_avatar_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/w_
 user_B.save!
 
 user_C = User.create!(first_name: "Arnold", last_name: "Schwarzy", email: "arnold.schwarzy@gmail.com", password: "password", linkedin: "https://www.linkedin.com/in/arnold-schwarzy-ba978054",
-         category: "", function: "", company: "",
+         category: "", function: "Manager", company: "",
          annual_objective: "", objective_done: "", manager_id: "")
 user_C.remote_avatar_url = 'https://res.cloudinary.com/dmeiwlskm/image/upload/v1559727602/drl50onrexutaktrujvw.jpg'
 user_C.save!
