@@ -1,4 +1,4 @@
-<!-- ---------------------------------1st PAGE of the proposition------------------------------------ -->
+<!-- -------------------------1st PAGE of the proposition -"PAGE DE  GARDE"-------------------------- -->
 
 <div class="row">
   <!-- Ajouter ici, sur une même ligne le logo  SecurExperts (a gauche) et le logo Airbus (à droite)-->
@@ -33,7 +33,7 @@
 
 
 
-<!-- ---------------------------------2nd PAGE of the proposition------------------------------------ -->
+<!-- ---------------------2nd PAGE of the proposition - COMPANY'S INFORMATION-------------------------- -->
 
 
 <div class="row">
@@ -66,7 +66,7 @@
         <li>EDF La Défense tower</li>
         <li>Ministry of Economy Bercy site</li>
         <li>Total Feyzin petrochemical plant</li>
-        <li>EDF nuclaer plant of Le Bugey</li>
+        <li>EDF nuclear plant of Tricastin</li>
         <li>...</li>
       </ul>
   </div>
@@ -90,14 +90,14 @@
 </div>
 
 
-<!-- ---------------------------------3rd PAGE of the proposition------------------------------------ -->
+<!-- ----------------------3rd PAGE of the proposition - TECHNICAL MEMOIRE ----------------------- -->
 
 <div class="row">
   <h2>Our technical proposal</h2>
 </div>
 
 <div class="row">
-  <h3>Missions résumé</h3>
+  <h3>Missions resume</h3>
   <table>
     <!--  inclure ici un tableau avec pour chaque mission, et sur 3 lignes, les informations relatives au staff, aux equipments et aux trainings (voir document papier)  -->
   </table>
@@ -131,7 +131,7 @@
 </div>
 
 
-<!-- ---------------------------------4th PAGE of the proposition------------------------------------ -->
+<!-- ---------------------------------4th PAGE of the proposition - PRICE -------------------------------- -->
 
 <div class="row">
   <h2>Financial offer</h2>
@@ -141,7 +141,7 @@
   <h3>Client</h3>
     <p><strong><%= @client.company_name %></strong></p>
     <p><%= @client.company_address %></p>
-    <p><%= @client.first_name %> <%= client.last_name %></p>
+    <p><%= @client.first_name %> <%= @client.last_name %></p>
     <p><%= @client.email %></p>
 </div>
 
@@ -154,32 +154,55 @@
 <div class="row">
   <h3>Detailed price</h3>
 
-
-    <table>
-      <!-- foreach xxx-->
-      <% @missions.each do |mission| %>
-        <h4>Mission : <%= mission.description %></h4>
-      <!--  inclure ici un tableau avec pour chaque mission, et sur 3 lignes, les informations relatives au staff, aux equipments et aux trainings (voir document papier)  -->
-          <% mission.staffs.each do |staff|%>
-            <%= staff.category %>
-            <%= staff.description %>
-            <%= staff.picture %>
-          <% end %>
-          <% mission.equipments.each do |equipment|%>
-            <%= equipment.category %>
-            <%= equipment.description %>
-            <%= equipment.picture %>
-          <% end %>
-          <% mission.trainings.each do |training|%>
-            <%= training.category %>
-            <%= training.description %>
-            <%= training.icon %>
-          <% end %>
-      <% end %>
-
-        <h4><strong>Total price / year</strong></h4>
-    </table>
+<div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+  <thead>
+    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Item category: activate to sort column descending" style="width: 135px;">Item category</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending" style="width: 210px;">Quantity</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Hours per year: activate to sort column ascending" style="width: 88px;">Hours per year</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Unit price / Average hourly price: activate to sort column ascending" style="width: 88px;">Unit price / Average hourly price</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Total Price: activate to sort column ascending" style="width: 80px;">Total Price</th></tr>
+  </thead>
+  <tfoot>
+  <tr><th rowspan="1" colspan="1">Item category</th><th rowspan="1" colspan="1">Quantity</th><th rowspan="1" colspan="1">Hours per year</th><<th rowspan="1" colspan="1">Unit price</th><th rowspan="1" colspan="1">PTotal Price</th></tr>
+  </tfoot>
+  <tbody>
+    <% @missions.each do |mission| %>
+            <!-- <h4>Mission : <%= mission.description %></h4> -->   <!-- essayer d'inclure la description de la mission entre chaque mission dans le tableau -->
+    <tr role="row">  <!-- STAFF -->
+      <% mission.staffs.each do |staff|%>
+        <td><%= staff.category %></td>
+        <td><%= mission.staff_quantity %></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  staff ici ?????? -->
+        <td><%= if mission.staff_planning == "H24 7/7"
+                  return total_hours = (@quotation.end_date - @quotation.starting_date) * 24
+                elsif mission.staff_planning == "7/19 Monday>Friday"
+                  return total_hours = (@quotation.end_date - @quotation.starting_date) / 7 *5 * 12
+                elsif mission.staff_planning == "19/7 Monday>Friday & H24 on WE"
+                  return total_hours = (@quotation.end_date - @quotation.starting_date) / 7 *5 * 12 +
+                                       (@quotation.end_date - @quotation.starting_date) / 7 *2 * 12
+                else
+                  return "error"
+                end %> <!-- calculer ici le total heures si staff ou récupérer -->
+        <td><%= average_hourly_price = xxxx %></td> <!-- calculer ici le taux horaire moyen  -->
+        <td><%= total_staff_price = xxxx %></td> <!-- calculer ici le prix total par an  -->
+    </tr>
+    <tr role="row">  <!-- TRAINING -->
+      <% mission.trainings.each do |training|%>
+        <td><%= training.category %></td>
+        <td><%= mission.training_quantity %></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  training ici ?????? -->
+        <td>/</td>  <!-- ne pas renseigner cette colonne pr le training -->
+        <td><%= unit_training_price = training.duration.to_i * average_hourly_price + training.educational_cost * (1 + @quotation.margin_rate) %></td> <!-- calculer ici le coût total (pédagogique + salaires) par personnel -->
+        <td><%= total_training_price = unit_training_price * (total_hours / 1607) * (1 + @quotation.margin_rate) %></td> <!-- calculer ici le prix total par an  -->
+    </tr>
+    <tr role="row">  <!-- EQUIPMENTS -->
+      <% mission.equipments.each do |equipment|%>
+        <td><%= equipment.category %></td>
+        <td><%= mission.equipment_quantity %></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  equipment ici ?????? -->
+        <td>/</td>  <!-- ne pas renseigner cette colonne pr les equipments -->
+        <td><%= equipment.cost * (1 + @quotation.margin_rate) %></td> <!-- calculer ici le coût total (pédagogique + salaires) par personnel -->
+        <td><%= mission.equipment_quantity * equipment.cost * (1 + @quotation.margin_rate) %></td> <!-- calculer ici le prix total par an  -->
+    </tr>
+    </tbody>
+</table>
 </div>
+</div>
+
+
 
 
 
