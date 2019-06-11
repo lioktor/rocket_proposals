@@ -4,23 +4,23 @@
             <div class="narrow-form">
               <%= simple_form_for @client do |f| %>
               <h2>Company</h2>
-              <%= f.input :company_SIRET %>
-              <%= f.input :company_name %>
-              <%= f.input :company_picture %>
+              <%= f.input :company_SIRET, label: false, placeholder: 'Company Resistration Number' %>
+              <%= f.input :company_name, label: false, placeholder: 'Company Name' %>
+              <%= f.input :company_picture, label: false, placeholder: 'Company picture' %>
               <%= f.input :company_picture_cache, as: :hidden %>
-              <%= f.input :company_address %>
-              <%= f.input :activity_sector %>
+              <%= f.input :company_address, label: false, placeholder: 'Company address' %>
+              <%= f.input :activity_sector, label: false, placeholder: 'Company Sector' %>
               <h2>Contact</h2>
-              <%= f.input :first_name %>
-              <%= f.input :last_name %>
-              <%= f.input :email %>
-              <%= f.input :phone %>
-              <%= f.input :linkedin %>
+              <%= f.input :first_name, label: false, placeholder: 'First name'  %>
+              <%= f.input :last_name, label: false, placeholder: 'Last name'  %>
+              <%= f.input :email, label: false, placeholder: 'Email'  %>
+              <%= f.input :phone, label: false, placeholder: 'Phone'  %>
+              <%= f.input :linkedin, label: false, placeholder: 'Linked'  %>
               <%= f.input :category,
                           required: true,
                           collection: ["Financial", "Technical", "Financial & Technical"],
                           input_html: { autocomplete: "category" }  %>
-              <%= f.input :function %>
+              <%= f.input :function, label: false, placeholder: 'Function'  %>
               <%= f.submit class: "btn btn-primary"%>
               <% end %>
             </div>
