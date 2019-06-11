@@ -1,4 +1,6 @@
 <h1>BusinessProposals#index</h1>
 <p>Find me in app/views/business_proposals/index.html.erb</p>
 
-<p><%= @business_proposals %></p>
+<p><% @business_proposals.each do |proposal|%></p>
+<%= proposal.quotation.opportunity.name %>
+<% end %>

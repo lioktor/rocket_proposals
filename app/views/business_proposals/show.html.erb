@@ -170,7 +170,7 @@
   <tbody>
     <% @business_proposal.quotation.missions.each do |mission| %>
             <!-- <h4>Mission : <%= mission.description %></h4> -->   <!-- essayer d'inclure la description de la mission entre chaque mission dans le tableau -->
-              <% if mission.staff_planning == "H24"  %>
+              <% if mission.staff_planning == "H24 7/7"  %>
                 <% total_hours = (mission.quotation.end_date - mission.quotation.starting_date) * 24 %>
                 <%= total_hours %>
               <%  elsif mission.staff_planning == "7/19 Monday>Friday"  %>
