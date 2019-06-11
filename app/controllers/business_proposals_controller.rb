@@ -47,6 +47,7 @@ private
     @opportunity = Opportunity.find(params[:opportunity_id])
     @client = Client.find(params[:client_id])
     @missions = Mission.where(quotation_id: @quotation_id)
+    @quotation = Quotation.find(params[:id])
 
     respond_to do |format|
       format.html
