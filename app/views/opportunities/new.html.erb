@@ -17,6 +17,10 @@
                 required: true,
                 collection: ["Yes", "No"],
                 input_html: { autocomplete: "question_3" } %>
+    <%= f.input :status ,
+                required: true,
+                collection: ["Pending", "Won", "Lost"],
+                input_html: { autocomplete: "status" } %>
     <%= f.submit class: "btn btn-primary"%>
     <% end %>
 </div>

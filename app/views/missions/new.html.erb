@@ -9,8 +9,8 @@
         <%= f.input :staff_quantity%>
         <%= f.input :staff_planning ,
                      required: true,
-                     collection: ["H24", "H7-19"],
-                     input_html: { autocomplete: "category" }  %>
+                     collection: ["H24 7/7", "7/19 Monday>Friday", "19/7 Monday>Friday & H24 on WE"],
+                     input_html: { autocomplete: "staff_planning" }  %>
         <%= f.input :training_quantity%>
         <%= f.input :equipment_quantity%>
         <%= f.submit 'Add this mission', class: "btn btn-primary"%>
