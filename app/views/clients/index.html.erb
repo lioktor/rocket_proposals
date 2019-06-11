@@ -5,59 +5,6 @@ params[:query],
 class: "form-control",
 placeholder: "Search for company" %>
 <% end %>
-<!-- -->
-<!-- Area Chart -->
-<!-- <div class="col-xl-8 col-lg-7">
-  <div class="card shadow mb-4"> -->
-    <!-- Card Header - Dropdown -->
-    <!--     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Client Index</h6>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Dropdown Header:</div>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-    </div> -->
-    <!-- Card Body -->
-    <!--    <div class="card-body" id=scroll-div>
-      <div class="row">
-        <div class="col-sm-12"> -->
-          <!--           <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-            <thead>
-              <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 48px;">Action</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 48px;">Co logo</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co name: activate to sort column ascending" style="width: 112px;">Co name</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Siret: activate to sort column ascending" style="width: 112px;">Siret</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co address: activate to sort column ascending" style="width: 255px;">Co address</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Sector: activate to sort column ascending" style="width: 112px;">Sector</th><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending" style="width: 255px;">First name</th><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Last name: activate to sort column descending" style="width: 255px;">Last name</th><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Email: activate to sort column descending" style="width: 255px;">Email</th><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Tel: activate to sort column descending" style="width: 112px;">Tel</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending" style="width: 112px;">Category</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Function: activate to sort column ascending" style="width: 156px;">Function</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="LinkedIn: activate to sort column ascending" style="width: 156px;">LinkedIn</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr role="row" class="odd">
-              <% @clients.each do |client| %>
-              <td class="sorting_1"><%= %></td>
-              <td><%= client.company_picture %></td>
-              <td><%= client.company_name %></td>
-              <td><%= client.company_SIRET %></td>
-              <td><%= client.company_address %></td>
-              <td><%= client.activity_sector %></td>
-              <td><%= client.first_name %></td>
-              <td><%= client.last_name %></td>
-              <td><%= client.email %></td>
-              <td><%= client.phone %></td>
-              <td><%= client.category %></td>
-              <td><%= client.function %></td>
-              <td><%= client.linkedin %></td>
-              <td><%= link_to 'more info', client_path(client) %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table> -->
-      <!--       </div>
-    </div>
-  </div> -->
   <div class="main-container">
     <div class="cards">
       <% @clients.each do |client| %>
@@ -65,10 +12,6 @@ placeholder: "Search for company" %>
           <div class="card-category" style="">
                   <%= cl_image_tag(client.company_picture, :width=>100, :height=>100, :radius=>150) %>
                  <h3><%= client.company_name %></h3>
-               Address: <%= client.company_address %>
-               <br>
-                  SIRET: <%= client.company_SIRET %>
-
           </div>
         <% end %>
       <% end %>

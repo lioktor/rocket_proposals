@@ -63,11 +63,12 @@
       </li>
 <!-- Nav Item - Pages Memoire Collapse Menu -->
        <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMemoire" aria-expanded="true" aria-controls="collapseMemoire">
-          <i class="fa fa-eur" aria-hidden="true"></i>
-          <span>Memoire</span>
-       <!--   Remplacer ligne 94 à 98 par un linked to -->
-        </a>
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa fa-briefcase" aria-hidden="true"></i>
+          <span>Business Proposals</span>
+        <% end %>
+       <!--   Fiona_Remplacer 66 par le bon path -->
+
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider">

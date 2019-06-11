@@ -1,23 +1,65 @@
+<!-- Area Chart -->
+<div class="col-xl-8 col-lg-7">
+  <div class="card shadow mb-4">
 
-<% if current_user.function == "Manager" %>
-  <ul>
-    <% @opportunities.each do |opportunity| %>
-    <li>Agent <%= opportunity.user_id%>
-      Client: <%= opportunity.client_id %>
-      Name: <%= opportunity.name %>
-      Description: <%= opportunity.description %>
-    </li>
-    <% end %>
-  </ul>
-<% else %>
-  <% @user = current_user %>
-  <% @opp = Opportunity.where(user_id: @user.id)%>
-  <ul>
-    <% @opp.each do |opp| %>
-    <li> <%= opp.name %>
-         <%= opp.description %>
-         <%= opp.status %>
-    </li>
-  <% end %>
-  </ul>
-<% end %>
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Opportunity Index</h6>
+      <div class="dropdown no-arrow">
+        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+          <div class="dropdown-header">Dropdown Header:</div>
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </div>
+    <!-- Card Body -->
+   <div class="card-body" id=scroll-div>
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+            <thead>
+              <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 48px;">Name</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 48px;">Description</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co name: activate to sort column ascending" style="width: 112px;">Question 1</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Siret: activate to sort column ascending" style="width: 112px;">Question 2</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co address: activate to sort column ascending" style="width: 255px;">Question 3</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Sector: activate to sort column ascending" style="width: 112px;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr role="row" class="odd">
+              <% @opportunities.each do |opportunity| %>
+              <td class="sorting_1"><%= opportunity.name %></td>
+              <td><%= opportunity.description %></td>
+              <td><%= opportunity.question_1 %></td>
+              <td><%= opportunity.question_2 %></td>
+              <td><%= opportunity.question_3 %></td>
+              <td><%= opportunity.status %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table> -->
+       </div>
+    </div>
+  </div>
+
+
+<!--
+
+create_table "opportunities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "question_1"
+    t.text "question_2"
+    t.text "question_3"
+    t.string "status"
+    t.bigint "client_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_opportunities_on_client_id"
+    t.index ["user_id"], name: "index_opportunities_on_user_id"
+  end
+
+ -->
