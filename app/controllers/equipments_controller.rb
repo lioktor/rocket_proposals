@@ -1,11 +1,16 @@
 class EquipmentController < ApplicationController
-    def index
+  def index
     @equipments = equipment.all
   end
 
   def new
-    @mission = Mission.find(params[:mission_id])
-    @equipment = equipment.new
+    @equipment = Equipment.new
+    @quotation = Quotation.find(params[:quotation_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    @equipments = Equipment.all
+    @equipment = @equipments.map do |equipment|
+      equipment = equipment.category
+    end
   end
 
   def create
@@ -16,7 +21,7 @@ class EquipmentController < ApplicationController
       redirect_to equipment_path(@equipment)
     else
       @mission = Mission.new
-      render :new  #"users/show"
+      render :new
     end
   end
 

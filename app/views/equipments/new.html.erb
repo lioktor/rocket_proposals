@@ -1,0 +1,14 @@
+<h1>Add a new equipment to your mission</h1>
+
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+    <h1>New mission</h1>
+        <%= simple_form_for [@opportunity, @quotation, @mission] do |f| %>
+        <%= f.input :staff_id, collection: @equipments%>
+        <%= f.input :equipment_quantity%>
+        <%= f.submit 'Add this equipment', class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</div>
