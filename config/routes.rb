@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users
 
+  resources :business_proposals, only: [:show, :index]
+
   resources :clients do
     resources :opportunities  do
       collection do
