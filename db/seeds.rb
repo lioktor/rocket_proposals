@@ -146,9 +146,9 @@ training_B = Training.create!(category: "fire protection", description: "drink w
 training_B.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1559727945/h54sajtohtsrpvmnczug.png"
 training_B.save!
 
-mission_staff_A = MissionStaff.new(mission: mission_A, staff: staff_A)
-mission_staff_B = MissionStaff.new(mission: mission_B, staff: staff_B)
-mission_staff_C = MissionStaff.new(mission: mission_C, staff: staff_C)
+mission_staff_A = MissionStaff.create!(mission: mission_A, staff: staff_A)
+mission_staff_B = MissionStaff.create!(mission: mission_B, staff: staff_B)
+mission_staff_C = MissionStaff.create!(mission: mission_C, staff: staff_B)
 
 
 
