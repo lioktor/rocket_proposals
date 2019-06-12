@@ -4,19 +4,33 @@ class TrainingsController < ApplicationController
   end
 
   def new
-    @mission = Mission.find(params[:mission_id])
     @training = Training.new
+    @quotation = Quotation.find(params[:quotation_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    @mission = Mission.find(params[:mission_id])
+    @trainings = Training.all
+    @trainings = @trainings.map do |training|
+      training = training.category
+    end
+
+
   end
 
   def create
     @mission = Mission.find(params[:mission_id])
-    @training = current_user.trainings.build(training_params)
-    @training.mission = @mission
+    # # @training = current_user.trainings.build(training_params)
+    # @training.mission = @mission
+    # @trainings = Training.all
+    @quotation = Quotation.find(params[:quotation_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    @training = Training.new(training_params)
+    @mission.quotation = @quotation
     if @training.save
+      MissionTraining.create(mission: @mission, training: Training.where(params[:training_id]).first)
       redirect_to training_path(@training)
     else
       @mission = Mission.new
-      render :new  #"users/show"
+      render :new
     end
   end
 

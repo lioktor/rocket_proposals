@@ -10,13 +10,13 @@ class StaffsController < ApplicationController
 
   def create
     @mission = Mission.find(params[:mission_id])
-    @staff = current_user.staffs.build(staff_params)
+    @staff = current_user.staffs.new(staff_params)
     @staff.mission = @mission
     if @staff.save
       redirect_to staff_path(@staff)
     else
       @mission = Mission.new
-      render :new  #"users/show"
+      render :new
     end
   end
 

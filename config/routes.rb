@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root to: 'pages#home'
+  devise_for :users
   resources :users
 
-  resources :business_proposals, only: [:show, :index]
+resources :quotations do
+  resources :business_proposals, only: [:show, :index, :new]
+end
+
+
+  get "pages/dashboard" # ligne créée suite à création landing page
+
 
   resources :clients do
     resources :opportunities  do
@@ -18,13 +24,32 @@ Rails.application.routes.draw do
 #   resources :missions, only: [:new, :create]
 # end
 
-  resources :missions do
-    resources :trainings, only: [:index, :new, :show]
+resources :staffs do
+  resources :mission_staffs, only: [:index] do
+    resources :missions, only: [:new, :create]
   end
+end
+
+resources :trainings do
+  resources :training_staffs, only: [:index] do
+    resources :missions, only: [:new, :create]
+  end
+end
+
+# resources :missions do
+#   resources :trainings, only: [:index, :new, :show]
+# end
+
+# resources :missions do
+#   resources :equipments, only: [:index, :new, :show]
+# end
 
   resources :opportunities, only: [:index] do
       resources :quotations, only: [:index, :new, :show, :edit, :update, :create] do
-        resources :missions, only: [:new, :create, :destroy]
+        resources :missions, only: [:new, :create, :destroy, :show, :update] do
+          resources :trainings, only: [:new, :index, :show, :create]
+          resources :equipments, only: [:index, :new, :show]
+        end
       end
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,169 +1,50 @@
-<div class="container-fluid">
-  <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h5 class="m-0 font-weight-bold text-primary">Dashboard</h5>
-    <%= link_to(clients_path, class: "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm") do %>
-    <i class="fas fa-download fa-sm text-white-50"></i>
-    Generate Opportunity
-    <% end %>
-  </div>
-  <!-- Content Row -->
-  <div class="row">
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Objectives (Annual)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">€ <%= current_user.annual_objective %></div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-success shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Objectives done</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">€ <%= current_user.objective_done %></div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-warning shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Opportunities</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"><%= Opportunity.count %></div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-comments fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="main-container">
+
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= "https://res.cloudinary.com/dmeiwlskm/image/upload/v1560327761/ori4kigkzyvp1rzhrp74.png" %>;">
+    <div class="container">
+      <h1><strong> Rocket proposal </strong> </h1>
+
+      <p>Make your business proposals <strong>faster than ever</strong> to save time and win more deals!</p>
+      <h2> </h2>
+
+  <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success" %>
+  <%= link_to 'Log In', new_user_session_path, class: "btn btn-primary" %>
     </div>
   </div>
-  <!-- Content Row -->
-  <div class="row">
-    <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Opportunities in progress</h6>
-          <!--           <div class="dropdown no-arrow">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-              <div class="dropdown-header">Dropdown Header:</div>
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div> -->
-        </div>
-        <!-- Card Body -->
-        <div class="card-body" id=scroll-div>
-          <div class="row">
-            <div class="col-sm-12">
-              <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                <thead>
-                  <tr role="row">
-                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 156px;">
-                    Company name</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 255px;">Mission</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 112px;">Status</th>
-                  </tr>
-                </thead>
-                <!--  <tfoot>
-                <tr>
-                  <th rowspan="1" colspan="1">Name</th>
-                  <th rowspan="1" colspan="1">Description</th>
-                  <th rowspan="1" colspan="1">Status</th>
-                  </tfoot> -->
-                  <tbody>
-                    <% @user = current_user %>
-                    <% @opp = Opportunity.where(user_id: @user.id)%>
-                    <% @opp.each do |opp| %>
-                    <tr role="row" class="odd"  >
-                      <td class="company-name" ><%= opp.client.company_name %></td>
-                      <td ><%= opp.description %></td>
-                      <td ><%= opp.status %></td>
-                      <% end %>
-                    </tr>
-                  </tbody>
 
-
-
-
-
-
-
-
-
-
-                </table></div></div>
-              </div>
-            </div>
-          </div>
-          <!-- Pie Chart -->
-          <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                <canvas id="myPieChart" width="299" height="245" class="chartjs-render-monitor" style="display: block; width: 299px; height: 245px;"></canvas>
-              </div>
-              <div class="mt-4 text-center small">
-                <span class="mr-2">
-                  <i class="fas fa-circle text-primary"></i> Direct
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-success"></i> Social
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-info"></i> Referral
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Content Row -->
+  <div class="body d-flex justify-content-around">
+    <section class="features-icons bg-light text-center">
+    <div class="container">
       <div class="row">
-        <!-- Content Column -->
-        <div class="col-lg-6 mb-4">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-screen-desktop m-auto text-primary"></i>
+            </div>
+            <h3>Security</h3>
+            <p class="lead mb-0">Costing matrix</p>
+          </div>
         </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-layers m-auto text-primary"></i>
+            </div>
+            <h3>Safety</h3>
+            <p class="lead mb-0">Auto-content</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-check m-auto text-primary"></i>
+            </div>
+            <h3>CRM</h3>
+            <p class="lead mb-0"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+</div>
