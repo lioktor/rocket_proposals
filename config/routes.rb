@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
 resources :quotations do
-  resources :business_proposals, only: [:show, :index, :new]
+  resources :business_proposals, only: [:show, :index, :new, :create]
 end
 
 

@@ -13,12 +13,12 @@ class BusinessProposalsController < ApplicationController
   end
 
   def create
-    @business_proposal = current_user.business_proposal.build(business_proposal_params)
-
+    @quotation = Quotation.find(params[:quotation_id])
+    @business_proposal = BusinessProposal.new(quotation_id: params[:quotation_id])
     if @business_proposal.save
-      redirect_to business_proposal_path(@business_proposal)
+      redirect_to quotation_business_proposal_path(@quotation, @business_proposal)
     else
-      render :new
+      redirect_to opportunity_quotation_path(@quotation.opportunity, @quotation)
     end
   end
 
@@ -30,7 +30,7 @@ class BusinessProposalsController < ApplicationController
   end
 
   def show
-    @business_proposal = BusinessProposal.find(params[:id])
+
   end
 
   def PDF

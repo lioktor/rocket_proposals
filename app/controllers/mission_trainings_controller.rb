@@ -8,6 +8,8 @@ class MissionTrainingsController < ApplicationController
   def create
     @mission = Mission.find(params[:mission_id])
     @mission_training = MissionTraining.new(mission_training_params)
+    @mission.training_quantity = params[:mission_training][:quantity]
+    @mission.save
     if @mission_training.save
       redirect_to opportunity_quotation_mission_path(@mission.quotation.opportunity, @mission.quotation, @mission)
     else
