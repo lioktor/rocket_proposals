@@ -1,10 +1,10 @@
 <!-- Area Chart -->
-<div class="col-xl-8 col-lg-7">
+<div class="col-xl-12 col-lg-7">
   <div class="card shadow mb-4">
 
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Opportunity Index</h6>
+      <h5 class="m-0 font-weight-bold text-primary">Opportunity Index</h5>
       <div class="dropdown no-arrow">
         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -24,13 +24,14 @@
         <div class="col-sm-12">
           <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
             <thead>
-              <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 48px;">Name</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 48px;">Description</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co name: activate to sort column ascending" style="width: 112px;">Question 1</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Siret: activate to sort column ascending" style="width: 112px;">Question 2</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co address: activate to sort column ascending" style="width: 255px;">Question 3</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Sector: activate to sort column ascending" style="width: 112px;">Status</th>
+              <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 148px;">Company name</th><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 172px;">Mission</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 207px;">Description</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co name: activate to sort column ascending" style="width: 88px;">Question 1</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Siret: activate to sort column ascending" style="width: 88px;">Question 2</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co address: activate to sort column ascending" style="width: 88px;">Question 3</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Sector: activate to sort column ascending" style="width: 72px;">Status</th>
             </tr>
           </thead>
           <tbody>
             <tr role="row" class="odd">
               <% @opportunities.each do |opportunity| %>
-              <td class="sorting_1"><%= opportunity.name %></td>
+              <td class="sorting_1 company-name"><%= opportunity.client.company_name %></td>
+              <td><%= opportunity.name %></td>
               <td><%= opportunity.description %></td>
               <td><%= opportunity.question_1 %></td>
               <td><%= opportunity.question_2 %></td>
@@ -39,7 +40,7 @@
             </tr>
             <% end %>
           </tbody>
-        </table> -->
+        </table>
        </div>
     </div>
   </div>
