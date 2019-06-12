@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
    <div class="col-12">
-    <h1>New mission</h1>
+    <h5 class="m-0 font-weight-bold text-primary">New Mission</h5>
         <%= simple_form_for [@opportunity, @quotation, @mission] do |f| %>
         <%= f.input :description%>
         <%= f.submit 'Add this mission', class: "btn btn-primary"%>

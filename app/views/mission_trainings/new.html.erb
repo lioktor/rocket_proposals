@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
    <div class="col-12">
-    <h1>Choose your training</h1>
+    <h5 class="m-0 font-weight-bold text-primary">Choose your Training</h5>
         <%= simple_form_for [@mission, @mission_training] do |f| %>
         <%= f.input :mission_id, :input_html => { value: @mission.id}, as: :hidden %>
          <%= f.input :quantity %>

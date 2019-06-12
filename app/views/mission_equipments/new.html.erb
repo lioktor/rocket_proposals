@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
    <div class="col-12">
-    <h1>Choose your equipment</h1>
+    <h5 class="m-0 font-weight-bold text-primary">Choose your Equipment</h5>
         <%= simple_form_for [@mission, @mission_equipment] do |f| %>
         <%= f.input :mission_id, :input_html => { value: @mission.id}, as: :hidden %>
         <%= f.input :equipment_id, collection: @equipments, label_method: :category %>
