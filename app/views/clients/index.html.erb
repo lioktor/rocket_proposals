@@ -11,7 +11,7 @@ placeholder: "Search for company" %>
       <% @clients.each do |client| %>
         <%= link_to client_path(client), style: "text-decoration: none;" do %>
           <div class="card-category align-items-center" style="">
-                  <%= cl_image_tag(client.company_picture, :width=>100, :height=>100, :radius=>150) %>
+                  <%= cl_image_tag(client.company_picture, :width=>250, :height=>150, :radius=>150) %>
 
           </div>
         <% end %>
