@@ -8,6 +8,7 @@ Opportunity.destroy_all
 Client.destroy_all
 BusinessProposal.destroy_all
 User.destroy_all
+MissionStaff.destroy_all
 
 
 puts "creating users"
@@ -208,6 +209,7 @@ training_B.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/
 training_B.save!
 
 puts "creating mission staff equipement and training "
+
 
 mission_staff_AA = MissionStaff.create!(mission: mission_A, staff: staff_A)
 mission_staff_AB = MissionStaff.create!(mission: mission_A, staff: staff_B)

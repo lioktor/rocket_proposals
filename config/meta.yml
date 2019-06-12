@@ -1,0 +1,7 @@
+meta_product_name: "Rocket proposals"
+meta_title: "Rocket proposals - Make your business proposals faster than ever to save time and win more deals! "
+meta_description: "Rocket proposals is a SaaS solution that allows you to create strong
+                  business proposals easily and much faster than with regular tools. Rocket has 3 main
+                  functions: quotation, content edition and CRM "
+meta_image: "app/assets/images/background_rocket.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

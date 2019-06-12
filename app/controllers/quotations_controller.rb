@@ -33,7 +33,7 @@ class QuotationsController < ApplicationController
 
   def show
     @quotation = Quotation.find(params[:id])
-    @opportunity = Opportunity.find(params[:opportunity_id])
+    @opportunity = Opportunity.find(params[:opportunity_id]) if params[:opportunity_id].present?
   end
 
   def destroy

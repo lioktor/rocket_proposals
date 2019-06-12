@@ -1,16 +1,21 @@
 
-          <h1 class="h3 mb-4 text-gray-800">Let's create a new client</h1>
+          <h5 class="h3 mb-4 font-weight-bold text-primary">Let's create a new client</h5>
             <p>Please complete:</p>
             <div class="narrow-form">
               <%= simple_form_for @client do |f| %>
-              <h2>Company</h2>
+
+              <h5 class="h3 mb-4 font-weight text-primary">Company</h5>
+
               <%= f.input :company_SIRET, label: false, placeholder: 'Company Resistration Number' %>
               <%= f.input :company_name, label: false, placeholder: 'Company Name' %>
-              <%= f.input :company_picture, label: false, placeholder: 'Company picture' %>
+              <%= f.input :company_picture, label: false, input_html: { class: "hidden" } %>
+              <div class="btn btn-primary" id="company-picture">
+                Company Logo
+              </div>
               <%= f.input :company_picture_cache, as: :hidden %>
               <%= f.input :company_address, label: false, placeholder: 'Company address' %>
               <%= f.input :activity_sector, label: false, placeholder: 'Company Sector' %>
-              <h2>Contact</h2>
+              <h5 class="h3 mb-4 font-weight text-primary">Contact</h5>
               <%= f.input :first_name, label: false, placeholder: 'First name'  %>
               <%= f.input :last_name, label: false, placeholder: 'Last name'  %>
               <%= f.input :email, label: false, placeholder: 'Email'  %>
@@ -24,3 +29,17 @@
               <%= f.submit class: "btn btn-primary"%>
               <% end %>
             </div>
+
+
+<script>
+
+  const btnPicture = document.querySelector("#company-picture");
+  console.log(btnPicture);
+  const input = document.querySelector("#client_company_picture");
+  console.log(input);
+  const uploadPicture = () => {
+    input.click();
+  };
+  btnPicture.addEventListener("click", uploadPicture);
+
+</script>
