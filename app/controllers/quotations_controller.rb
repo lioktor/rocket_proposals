@@ -49,7 +49,7 @@ class QuotationsController < ApplicationController
                                       :mission_id,
                                       :margin_rate,
                                       :selling_price,
-                                      :strating_date,
+                                      :starting_date,
                                       :end_date)
   end
 end
