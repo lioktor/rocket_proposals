@@ -154,7 +154,11 @@
                   <%= current_user.first_name %>
                   <%= current_user.last_name %>
                 </span>
-                <img class="img-profile rounded-circle" src="<%= cl_image_path current_user.avatar %>">
+                <% if current_user.avatar? %>
+                  <img class="img-profile rounded-circle" src="<%= cl_image_path current_user.avatar %>">
+                <% else %>
+                  <%= image_tag "logo.png", class: "img-profile rounded-circle" %>
+                <% end %>
               </a>
 
 
