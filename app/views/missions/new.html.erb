@@ -5,14 +5,6 @@
     <h1>New mission</h1>
         <%= simple_form_for [@opportunity, @quotation, @mission] do |f| %>
         <%= f.input :description%>
-        <%= f.input :staff_id, collection: @staffs%>
-        <%= f.input :staff_quantity%>
-        <%= f.input :staff_planning ,
-                     required: true,
-                     collection: ["H24 7/7", "7/19 Monday>Friday", "19/7 Monday>Friday & H24 on WE"],
-                     input_html: { autocomplete: "staff_planning" }  %>
-        <%= f.input :training_quantity%>
-        <%= f.input :equipment_quantity%>
         <%= f.submit 'Add this mission', class: "btn btn-primary"%>
         <% end %>
     </div>

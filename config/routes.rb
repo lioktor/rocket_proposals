@@ -42,11 +42,13 @@ end
 
   resources :opportunities, only: [:index] do
       resources :quotations, only: [:index, :new, :show, :edit, :update, :create] do
-        resources :missions, only: [:new, :create, :destroy, :show, :update] do
-          resources :trainings, only: [:new, :index, :show, :create]
-          resources :equipments, only: [:index, :new, :show]
-        end
+        resources :missions, only: [:new, :create, :destroy, :update, :show]
       end
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :missions, only: [:show] do
+    resources :mission_staffs, only: [:new, :create]
+    resources :mission_trainings, only: [:new, :create]
+    resources :mission_equipments, only: [:new, :create]
+  end
 end

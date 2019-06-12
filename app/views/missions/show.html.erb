@@ -1,9 +1,15 @@
-<h1>Missions#show</h1>
+<h1>Your mission</h1>
 
 <p>Description :<%= @mission.description %></p>
 
 
+<%= render "list_staff" %>
+<%= render "list_training" %>
+<%= render "list_equipment" %>
 
-
-
-
+<ul class="list-unstyled">
+  <li> <%= link_to "Add a staff", new_mission_mission_staff_path(@mission)  %></li>
+  <li> <%= link_to "Add a training", new_mission_mission_training_path(@mission)  %></li>
+  <li> <%= link_to "Add an equipment", new_mission_mission_equipment_path(@mission)  %></li>
+  <li><%=  link_to "Validate this Mission", opportunity_quotation_path(@mission.quotation.opportunity, @mission.quotation) %></li>
+</ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_161053) do
+ActiveRecord::Schema.define(version: 2019_06_12_093352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_161053) do
     t.bigint "equipment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
     t.index ["equipment_id"], name: "index_mission_equipments_on_equipment_id"
     t.index ["mission_id"], name: "index_mission_equipments_on_mission_id"
   end
@@ -67,6 +68,8 @@ ActiveRecord::Schema.define(version: 2019_06_10_161053) do
     t.bigint "staff_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
+    t.string "planning"
     t.index ["mission_id"], name: "index_mission_staffs_on_mission_id"
     t.index ["staff_id"], name: "index_mission_staffs_on_staff_id"
   end
@@ -76,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_161053) do
     t.bigint "training_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
     t.index ["mission_id"], name: "index_mission_trainings_on_mission_id"
     t.index ["training_id"], name: "index_mission_trainings_on_training_id"
   end

@@ -1,0 +1,5 @@
+<ul>
+<% @mission.mission_equipments.each do |mission_equipment| %>
+ <li> <%= mission_equipment.equipment.description  %> </li>
+<% end %>
+</ul>
