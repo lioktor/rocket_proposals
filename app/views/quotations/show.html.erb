@@ -1,17 +1,63 @@
-<div class="container">
+<!-- Area Chart -->
+<div class="col-xl-12 col-lg-7">
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h5 class="m-0 font-weight-bold text-primary">Missions</h5>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
   <div class="row">
    <div class="col-12">
-      <ul><%= @quotation.opportunity.name %>
-        <% @quotation.missions.each do |mission| %>
-        <li>
-          Mission: <%= mission.description %>
-           <%= link_to 'Edit this mission', opportunity_quotation_mission_path(@opportunity, @quotation, mission) %>
-           <%= link_to 'Remove this mission', opportunity_quotation_mission_path(@opportunity, @quotation, mission), method: :delete %>
-        </li>
-        <% end %>
-        <%= link_to 'Add a mission', new_opportunity_quotation_mission_path(@opportunity, @quotation) %>
+    <%= @quotation.opportunity.name %>
+    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+            <thead>
+              <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 148px;">
+                  Company name
+                </th>
+                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 172px;">
+                  Mission</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 207px;">
+                  Description
+                </th>
+                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 207px;">
+                  Actions Quotations
+                </th>
 
-      </ul>
+          </tr>
+          </thead>
+          <tbody>
+            <tr role="row" class="odd">
+              <% @quotation.missions.each do |mission| %>
+              <% opportunity = mission.quotation.opportunity %>
+              <td class="sorting_1 company-name"><%= opportunity.client.company_name %></td>
+              <td><%= opportunity.name %></td>
+              <td><%= opportunity.description %></td>
+              <td><span></span>
+                <%= link_to new_opportunity_quotation_mission_path(opportunity, mission.quotation), class: "btn btn-secondary" do%>
+                  <i class="fas fa-plus"></i>
+                <% end %>
+                <%= link_to opportunity_quotation_mission_path(opportunity, mission.quotation, mission), data: { confirm: "Are you sure you want to edit?"}, class: "btn btn-secondary" do %>
+                  <i class="fas fa-pencil-alt"></i>
+                <% end %>
+                <%= link_to opportunity_quotation_mission_path(@opportunity, @quotation, mission), data: { confirm: "Are you sure you want to delete?"}, method: :delete, class: "btn btn-secondary" do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+
     </div>
   </div>
 </div>
+
+
+
+
