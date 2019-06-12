@@ -1,5 +1,5 @@
 <!-- -------------------------1st PAGE of the proposition -"PAGE DE  GARDE"-------------------------- -->
-
+<div class="ml-4">
 <div class="row">
   <!-- Ajouter ici, sur une même ligne le logo  SecurExperts (a gauche) et le logo Airbus (à droite)-->
   <div>
@@ -143,79 +143,115 @@
   <h2>Financial offer</h2>
 </div>
 
-<div class="row">
-  <h3>Client</h3>
-    <p><strong><%= @business_proposal.quotation.opportunity.client.company_name %></strong></p>
-    <p><%= @business_proposal.quotation.opportunity.client.company_address %></p>
-    <p><%= @business_proposal.quotation.opportunity.client.first_name %> <%= @business_proposal.quotation.opportunity.client.last_name %></p>
-    <p><%= @business_proposal.quotation.opportunity.client.email %></p>
+<div class="row text-center">
+  <h3>Client : </h3>
+</div>
+  <div class="row">
+    <div class="col"> <p><strong><%= @business_proposal.quotation.opportunity.client.company_name %></strong></p></div>
+    <div class="col"><%= @business_proposal.quotation.opportunity.client.company_address %></div>
+    <div class="col"><%= @business_proposal.quotation.opportunity.client.first_name %> <%= @business_proposal.quotation.opportunity.client.last_name %></div>
+    <div class="col"> <%= @business_proposal.quotation.opportunity.client.email %> </div>
 </div>
 
-<div class="row">
-  <h3>Project</h3>
+
+  <div class="row">
+    <h3>Project</h3>
+  </div>
+  <div class="row">
     <p><strong><%= @business_proposal.quotation.opportunity.name %></strong></p>
     <p><%= @business_proposal.quotation.opportunity.description %></p>
-</div>
+  </div>
 
 <div class="row">
   <h3>Detailed price</h3>
+</div>
 
-<div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-  <thead>
-    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Item category: activate to sort column descending" style="width: 135px;">Item category</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending" style="width: 210px;">Quantity</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Hours per year: activate to sort column ascending" style="width: 88px;">Hours per year</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Unit price / Average hourly price: activate to sort column ascending" style="width: 88px;">Unit price / Average hourly price</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Total Price: activate to sort column ascending" style="width: 80px;">Total Price</th></tr>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Item category</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Hours per year</th>
+      <th scope="col">Unit price / Average hourly price</th>
+      <th scope="col">Total Price</th>
+    </tr>
   </thead>
-  <tfoot>
-  <tr><th rowspan="1" colspan="1">Item category</th><th rowspan="1" colspan="1">Quantity</th><th rowspan="1" colspan="1">Hours per year</th><<th rowspan="1" colspan="1">Unit price</th><th rowspan="1" colspan="1">PTotal Price</th></tr>
-  </tfoot>
   <tbody>
-    <% @business_proposal.quotation.missions.each do |mission| %>
-            <!-- <h4>Mission : <%= mission.description %></h4> -->   <!-- essayer d'inclure la description de la mission entre chaque mission dans le tableau -->
-              <% if mission.staff_planning == "H24 7/7"  %>
-                <% total_hours = (mission.quotation.end_date - mission.quotation.starting_date) * 24 %>
-                <%= total_hours %>
-              <%  elsif mission.staff_planning == "7/19 Monday>Friday"  %>
-                <%  total_hours = (mission.quotation.end_date - mission.quotation.starting_date) / 7 *5 * 12  %>
-                <%= total_hours %>
-              <%   elsif mission.staff_planning == "19/7 Monday>Friday & H24 on WE"  %>
-                <% total_hours = (mission.quotation.end_date - mission.quotation.starting_date) / 7 *5 * 12 +
-                                       (mission.quotation.end_date - mission.quotation.starting_date) / 7 *2 * 12 %>
-                <%= total_hours %>
-              <%   else  %>
-                 <%=  "error"  %>
-                <% end %>
+  <% @total = 0 %>
+<% @business_proposal.quotation.missions.each do |mission| %>
+        <!-- <h4>Mission : <%= mission.description %></h4> -->   <!-- essayer d'inclure la description de la mission entre chaque mission dans le tableau -->
+  <% if mission.staff_planning == "H24 7/7"  %>
+    <% @total_hours = ((mission.quotation.end_date - mission.quotation.starting_date).to_i) * 24 %>
+    <% @total_hours %>
+  <%  elsif mission.staff_planning == "7/19 Monday>Friday"  %>
+    <%  @total_hours = ((mission.quotation.end_date - mission.quotation.starting_date).to_i) / 7 *5 * 12  %>
+    <% @total_hours %>
+  <%   elsif mission.staff_planning == "19/7 Monday>Friday & H24 on WE"  %>
+    <% @total_hours = ((mission.quotation.end_date - mission.quotation.starting_date).to_i) / 7 *5 * 12 + ((mission.quotation.end_date - mission.quotation.starting_date).to_i) / 7 *2 * 12 %>
+    <% @total_hours %>
+  <%   else  %>
+     <%  "error"  %>
+  <% end %>
 
-    <tr role="row">  <!-- STAFF -->
       <% mission.staffs.each do |staff|%>
-        <td><%= staff.category %></td>
-        <td><%= mission.staff_quantity %></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  staff ici ?????? -->
-     <!-- calculer ici le total heures si staff ou récupérer -->
-        <td><%= average_hourly_price = xxxx %></td> <!-- calculer ici le taux horaire moyen  -->
-        <td><%= total_staff_price = xxxx %></td> <!-- calculer ici le prix total par an  -->
-        <% end %>
-    </tr>
-    <tr role="row">  <!-- TRAINING -->
+       <tr>
+        <th scope="row"> <%= staff.category %></th>
+          <td><%= mission.staff_quantity %></td>
+          <td><%= @total_hours %></td>
+          <td><%= @average_hourly_price = staff.worked_time_hourly_rate %></td>
+          <td><%= number_with_delimiter((total_staff_price = @total_hours * mission.staff_quantity * @average_hourly_price).round(0), delimiter: " ")   %> €</td>
+          <% @total += total_staff_price %>
+        </tr>
+      <% end %>
+
       <% mission.trainings.each do |training|%>
-        <td><%= training.category %></td>
-        <td><%= mission.training_quantity %></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  training ici ?????? -->
-        <td>/</td>  <!-- ne pas renseigner cette colonne pr le training -->
-        <td><%= unit_training_price = training.duration.to_i * average_hourly_price + training.educational_cost * (1 + @business_proposal.quotation.margin_rate) %></td> <!-- calculer ici le coût total (pédagogique + salaires) par personnel -->
-        <td><%= total_training_price = unit_training_price * (total_hours / 1607) * (1 + @business_proposal.quotation.margin_rate) %></td> <!-- calculer ici le prix total par an  -->
-        <% end %>
-    </tr>
-    <tr role="row">  <!-- EQUIPMENTS -->
+        <tr>
+        <th scope="row"><%= training.category %> </th>
+          <td><%= mission.training_quantity %></td>
+          <td>/</td>
+          <td><%= number_with_delimiter((unit_training_price = training.duration.to_i * @average_hourly_price + training.educational_cost * (1 + @business_proposal.quotation.margin_rate)).round(0), delimiter: " ") %></td>
+          <td><%= number_with_delimiter((total_training_price = unit_training_price * mission.training_quantity * (1 + @business_proposal.quotation.margin_rate/100)).round(0),delimiter: " ") %> €</td>
+         </tr>
+           <% @total += total_training_price %>
+      <% end %>
       <% mission.equipments.each do |equipment|%>
-        <td><%= equipment.category %></td>
-        <td><%= mission.equipment_quantity %></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  equipment ici ?????? -->
-        <td>/</td>  <!-- ne pas renseigner cette colonne pr les equipments -->
-        <td><%= equipment.cost * (1 + @business_proposal.quotation.margin_rate) %></td> <!-- calculer ici le coût total (pédagogique + salaires) par personnel -->
-        <td><%= mission.equipment_quantity * equipment.cost * (1 + @business_proposal.quotation.margin_rate) %></td> <!-- calculer ici le prix total par an  -->
-        <% end %>
-    </tr>
-    <% end %>
-    </tbody>
+        <tr>
+      <th scope="row"> <%= equipment.category %> </th>  <!-- EQUIPMENTS -->
+
+          <td><%= mission.equipment_quantity %></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  equipment ici ?????? -->
+          <td>/</td>  <!-- ne pas renseigner cette colonne pr les equipments -->
+          <td><%= equipment.cost * (1 + @business_proposal.quotation.margin_rate) %></td> <!-- calculer ici le coût total (pédagogique + salaires) par personnel -->
+          <td><%= total_equipment_price =mission.equipment_quantity * equipment.cost * (1 + @business_proposal.quotation.margin_rate) %> €</td> <!-- calculer ici le prix total par an  -->
+        </tr>
+          <% @total += total_equipment_price %>
+      <% end %>
+  <% end %>
+   <tr>
+        <th scope="row"> Total </th>  <!-- EQUIPMENTS -->
+
+          <td></td>   <!-- peut-on appeler la mission alors que l'on est ds la boucle  equipment ici ?????? -->
+          <td>/</td>  <!-- ne pas renseigner cette colonne pr les equipments -->
+          <td></td> <!-- calculer ici le coût total (pédagogique + salaires) par personnel -->
+          <td><%= number_with_delimiter((@total).round(0),delimiter: " ") %> €</td> <!-- calculer ici le prix total par an  -->
+        </tr>
+
+
+  </tbody>
 </table>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -238,4 +274,5 @@
     Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
     Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere gentium ritu perfectaque sollemnitate imperator Mediolanum ad hiberna discessit.
   </p>
+</div>
 </div>
