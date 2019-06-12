@@ -10,7 +10,12 @@
         </li>
         <% end %>
         <%= link_to 'Add a mission', new_opportunity_quotation_mission_path(@opportunity, @quotation) %>
-
+        raise
+        <% if @quotation.business_proposal.present? %>
+        <%= link_to 'View your business proposal', quotation_business_proposal_path(@quotation) %>
+        <% else %>
+        <%= link_to 'Create a business proposal', quotation_business_proposals_path(@quotation), method: :post %>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -8,6 +8,8 @@ class MissionEquipmentsController < ApplicationController
   def create
     @mission = Mission.find(params[:mission_id])
     @mission_equipment = MissionEquipment.new(mission_equipment_params)
+    @mission.equipment_quantity = params[:mission_equipment][:quantity]
+    @mission.save
     if @mission_equipment.save
       redirect_to opportunity_quotation_mission_path(@mission.quotation.opportunity, @mission.quotation, @mission)
     else

@@ -9,6 +9,9 @@ class MissionStaffsController < ApplicationController
   def create
     @mission = Mission.find(params[:mission_id])
     @mission_staff = MissionStaff.new(mission_staff_params)
+    @mission.staff_quantity = params[:mission_staff][:quantity]
+    @mission.staff_planning = params[:mission_staff][:planning]
+    @mission.save
     if @mission_staff.save
       redirect_to opportunity_quotation_mission_path(@mission.quotation.opportunity, @mission.quotation, @mission)
     else
