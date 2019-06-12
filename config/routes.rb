@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :business_proposals, only: [:show, :index]
 
+
+  get "pages/dashboard" # ligne créée suite à création landing page
+
+
   resources :clients do
     resources :opportunities  do
       collection do
