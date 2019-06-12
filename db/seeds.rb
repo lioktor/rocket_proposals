@@ -8,6 +8,7 @@ Opportunity.destroy_all
 Client.destroy_all
 BusinessProposal.destroy_all
 User.destroy_all
+MissionStaff.destroy_all
 
 
 
@@ -206,29 +207,29 @@ training_B.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/
 training_B.save!
 
 
-mission_staff_AA = MissionStaff.create!(mission: mission_A, staff: staff_A)
-mission_staff_AB = MissionStaff.create!(mission: mission_A, staff: staff_B)
-mission_staff_AC = MissionStaff.create!(mission: mission_A, staff: staff_C)
-mission_staff_BB = MissionStaff.create!(mission: mission_B, staff: staff_B)
-mission_staff_BA = MissionStaff.create!(mission: mission_B, staff: staff_A)
-mission_staff_BC = MissionStaff.create!(mission: mission_B, staff: staff_C)
-mission_staff_CC = MissionStaff.create!(mission: mission_C, staff: staff_C)
-mission_staff_CA = MissionStaff.create!(mission: mission_C, staff: staff_A)
-mission_staff_CB = MissionStaff.create!(mission: mission_C, staff: staff_B)
+# mission_staff_AA = MissionStaff.create!(mission: mission_A, staff: staff_A)
+# mission_staff_AB = MissionStaff.create!(mission: mission_A, staff: staff_B)
+# mission_staff_AC = MissionStaff.create!(mission: mission_A, staff: staff_C)
+# mission_staff_BB = MissionStaff.create!(mission: mission_B, staff: staff_B)
+# mission_staff_BA = MissionStaff.create!(mission: mission_B, staff: staff_A)
+# mission_staff_BC = MissionStaff.create!(mission: mission_B, staff: staff_C)
+# mission_staff_CC = MissionStaff.create!(mission: mission_C, staff: staff_C)
+# mission_staff_CA = MissionStaff.create!(mission: mission_C, staff: staff_A)
+# mission_staff_CB = MissionStaff.create!(mission: mission_C, staff: staff_B)
 
-mission_equipment_AA = MissionEquipment.create!(mission: mission_A, equipment: equipment_A)
-mission_equipment_AB = MissionEquipment.create!(mission: mission_A, equipment: equipment_B)
-mission_equipment_AC = MissionEquipment.create!(mission: mission_A, equipment: equipment_C)
-mission_equipment_BB = MissionEquipment.create!(mission: mission_B, equipment: equipment_B)
-mission_equipment_BA = MissionEquipment.create!(mission: mission_B, equipment: equipment_A)
-mission_equipment_BC = MissionEquipment.create!(mission: mission_B, equipment: equipment_C)
-mission_equipment_CC = MissionEquipment.create!(mission: mission_C, equipment: equipment_C)
-mission_equipment_CA = MissionEquipment.create!(mission: mission_C, equipment: equipment_A)
-mission_equipment_CB = MissionEquipment.create!(mission: mission_C, equipment: equipment_B)
+# mission_equipment_AA = MissionEquipment.create!(mission: mission_A, equipment: equipment_A)
+# mission_equipment_AB = MissionEquipment.create!(mission: mission_A, equipment: equipment_B)
+# mission_equipment_AC = MissionEquipment.create!(mission: mission_A, equipment: equipment_C)
+# mission_equipment_BB = MissionEquipment.create!(mission: mission_B, equipment: equipment_B)
+# mission_equipment_BA = MissionEquipment.create!(mission: mission_B, equipment: equipment_A)
+# mission_equipment_BC = MissionEquipment.create!(mission: mission_B, equipment: equipment_C)
+# mission_equipment_CC = MissionEquipment.create!(mission: mission_C, equipment: equipment_C)
+# mission_equipment_CA = MissionEquipment.create!(mission: mission_C, equipment: equipment_A)
+# mission_equipment_CB = MissionEquipment.create!(mission: mission_C, equipment: equipment_B)
 
-mission_training_AA = MissionTraining.create!(mission: mission_A, training: training_A)
-mission_training_AB = MissionTraining.create!(mission: mission_A, training: training_B)
-mission_training_BB = MissionTraining.create!(mission: mission_B, training: training_B)
-mission_training_BA = MissionTraining.create!(mission: mission_B, training: training_A)
+# mission_training_AA = MissionTraining.create!(mission: mission_A, training: training_A)
+# mission_training_AB = MissionTraining.create!(mission: mission_A, training: training_B)
+# mission_training_BB = MissionTraining.create!(mission: mission_B, training: training_B)
+# mission_training_BA = MissionTraining.create!(mission: mission_B, training: training_A)
 
-business_proposal_A = BusinessProposal.create!(quotation_id: quotation_D.id)
+# business_proposal_A = BusinessProposal.create!(quotation_id: quotation_D.id)

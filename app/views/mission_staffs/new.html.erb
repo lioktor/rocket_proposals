@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+    <h1>Choose your staff</h1>
+        <%= simple_form_for [@mission, @mission_staff] do |f| %>
+        <%= f.input :mission_id, :input_html => { value: @mission.id}, as: :hidden %>
+        <%= f.input :staff_id, collection: @staffs, label_method: :category %>
+        <%= f.input :quantity %>
+        <%= f.input :planning ,
+                     required: true,
+                     collection: ["H24 7/7", "7/19 Monday>Friday", "19/7 Monday>Friday & H24 on WE"],
+                     input_html: { autocomplete: "staff_planning" }  %>
+          <%= f.submit 'Add this staff', class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</div>

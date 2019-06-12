@@ -7,13 +7,9 @@
           Mission: <%= mission.description %>
            <%= link_to 'Edit this mission', opportunity_quotation_mission_path(@opportunity, @quotation, mission) %>
            <%= link_to 'Remove this mission', opportunity_quotation_mission_path(@opportunity, @quotation, mission), method: :delete %>
-           <%= link_to 'Add a training', new_opportunity_quotation_mission_training_path(@opportunity, @quotation, mission) %>
-           <%= link_to 'Add an equipment', new_opportunity_quotation_mission_equipment_path(@opportunity, @quotation, mission) %>
         </li>
         <% end %>
         <%= link_to 'Add a mission', new_opportunity_quotation_mission_path(@opportunity, @quotation) %>
-
-        <%= link_to 'Validate this quotation', new_opportunity_quotation_mission_path(@opportunity, @quotation) %>
 
       </ul>
     </div>

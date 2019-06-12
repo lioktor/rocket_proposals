@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+    <h1>Choose your equipment</h1>
+        <%= simple_form_for [@mission, @mission_equipment] do |f| %>
+        <%= f.input :mission_id, :input_html => { value: @mission.id}, as: :hidden %>
+        <%= f.input :equipment_id, collection: @equipments, label_method: :category %>
+        <%= f.input :quantity %>
+          <%= f.submit 'Add this equipment', class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -9,9 +9,6 @@ class TrainingsController < ApplicationController
     @opportunity = Opportunity.find(params[:opportunity_id])
     @mission = Mission.find(params[:mission_id])
     @trainings = Training.all
-    @trainings = @trainings.map do |training|
-      training = training.category
-    end
 
 
   end
@@ -26,7 +23,6 @@ class TrainingsController < ApplicationController
     @training = Training.new(training_params)
     @mission.quotation = @quotation
     if @training.save
-      MissionTraining.create(mission: @mission, training: Training.where(params[:training_id]).first)
       redirect_to training_path(@training)
     else
       @mission = Mission.new

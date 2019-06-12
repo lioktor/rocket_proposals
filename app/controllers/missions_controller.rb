@@ -7,10 +7,6 @@ class MissionsController < ApplicationController
     @mission = Mission.new
     @quotation = Quotation.find(params[:quotation_id])
     @opportunity = Opportunity.find(params[:opportunity_id])
-    @staffs = Staff.all
-    @staffs = @staffs.map do |staff|
-      staff = staff.category
-    end
   end
 
   def create
@@ -20,8 +16,7 @@ class MissionsController < ApplicationController
     @mission.quotation = @quotation
 
     if @mission.save
-      MissionStaff.create(mission: @mission, staff: Staff.where(params[:staff_id]).first)
-      redirect_to opportunity_quotation_path(@opportunity, @quotation)
+      redirect_to opportunity_quotation_mission_path(@opportunity, @quotation, @mission)
     else
       @quotation = Quotation.new
       render :new
@@ -41,10 +36,8 @@ class MissionsController < ApplicationController
   end
 
   def show
-    @quotation = Quotation.find(params[:quotation_id])
-    @opportunity = Opportunity.find(params[:opportunity_id])
     @mission = Mission.find(params[:id])
-    @mission_staff = MissionStaff.where(mission_id: @mission.id)
+
   end
 
   def destroy
