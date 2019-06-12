@@ -8,6 +8,10 @@ resources :quotations do
   resources :business_proposals, only: [:show, :index, :new]
 end
 
+
+  get "pages/dashboard" # ligne créée suite à création landing page
+
+
   resources :clients do
     resources :opportunities  do
       collection do
