@@ -2151,7 +2151,7 @@ pre code {
   margin-bottom: 1rem;
   color: #858796;
    font-size: 12px;
-}
+ }
 
 .table th,
 .table td {
@@ -2431,6 +2431,10 @@ pre code {
 .table-dark.table-hover tbody tr:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.075);
+}
+
+.company-name {
+  font-weight: bold;
 }
 
 @media (max-width: 575.98px) {

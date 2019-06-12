@@ -1,22 +1,38 @@
+<div class="container d-inline-flex">
 
-<ul>
-  <h2>Company</h2>
-    <li>Name: <%= @client.company_name  %></li>
-    <li>SIRET: <%= @client.company_SIRET %></li>
-    <li><%= cl_image_tag @client.company_picture, height: 300, width: 400, crop: :fill %></li>
-    <li>Address: <%= @client.company_address %></li>
-    <li>Sector of activity: <%= @client.activity_sector %></li>
-  <h2>Contact</h2>
-    <li>First name:<%= @client.first_name %></li>
-    <li>Last name: <%= @client.last_name %></li>
-    <li>email: <%= @client.email %></li>
-    <li>Phone: <%= @client.phone %></li>
-    <li>LinkedIn: <%= link_to @client.linkedin %></li>
-    <li>Category: <%= @client.category %></li>
-    <li>Function: <%= @client.function %></li>
 
+  <div>
+<ul class="list-unstyled mr-5">
+  <h5 class="h3 mb-4 font-weight-bold text-primary">Company</h5>
+
+  <li>Name: <%= @client.company_name  %></li>
+  <li>SIRET: <%= @client.company_SIRET %></li>
+  <li><%= cl_image_tag @client.company_picture, height: 300, width: 400, crop: :fill %></li>
+  <li>Address: <%= @client.company_address %></li>
+  <li>Sector of activity: <%= @client.activity_sector %></li>
+
+  </ul>
+</div>
+<div>
+  <ul class="list-unstyled">
+
+
+
+  <h5 class="h3 mb-4 font-weight-bold text-primary">Contact</h5>
+  <li>First name:<%= @client.first_name %></li>
+  <li>Last name: <%= @client.last_name %></li>
+  <li>email: <%= @client.email %></li>
+  <li>Phone: <%= @client.phone %></li>
+  <li>LinkedIn: <%= link_to @client.linkedin %></li>
+  <li>Category: <%= @client.category %></li>
+  <li>Function: <%= @client.function %></li>
 </ul>
+</div>
+</div>
+
+
 <%= link_to 'Back to My companies', clients_path, class: "btn btn-primary" %>
 <%= link_to 'Create an opportunity', new_client_opportunity_path(@client), class: "btn btn-primary" %>
+
 
 
