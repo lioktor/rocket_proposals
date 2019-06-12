@@ -1,2 +1,20 @@
 <h1>Missions#update</h1>
-<p>Find me in app/views/missions/update.html.erb</p>
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+        <%= simple_form_for [@opportunity, @quotation, @mission] do |f| %>
+        <%= f.input :description%>
+        <%= f.input :staff_id, collection: @staffs%>
+        <%= f.input :staff_quantity%>
+        <%= f.input :staff_planning ,
+                     required: true,
+                     collection: ["H24", "H7-19"],
+                     input_html: { autocomplete: "category" }  %>
+         <%= f.input :staff_id, collection: @trainings%>
+        <%= f.input :training_quantity%>
+        <%= f.input :equipment_quantity%>
+        <%= f.submit 'Add this mission', class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</div>

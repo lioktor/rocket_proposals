@@ -1,2 +1,15 @@
-<h1>Trainings#new</h1>
-<p>Find me in app/views/trainings/new.html.erb</p>
+<h1>Add a new training to your mission</h1>
+
+<div class="container">
+  <div class="row">
+   <div class="col-12">
+        <%= simple_form_for [@opportunity, @quotation, @mission] do |f| %>
+        <%= f.collection_select :staff_id, Training.all, :id, :category%>
+        <%= f.input :training_quantity%>
+        <%= f.submit 'Add this training', class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+

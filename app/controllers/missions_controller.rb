@@ -1,7 +1,6 @@
 class MissionsController < ApplicationController
   def index
     @missions = Mission.all
-
   end
 
   def new
@@ -12,7 +11,6 @@ class MissionsController < ApplicationController
     @staffs = @staffs.map do |staff|
       staff = staff.category
     end
-
   end
 
   def create
@@ -20,7 +18,9 @@ class MissionsController < ApplicationController
     @opportunity = Opportunity.find(params[:opportunity_id])
     @mission = Mission.new(mission_params)
     @mission.quotation = @quotation
+
     if @mission.save
+      MissionStaff.create(mission: @mission, staff: Staff.where(params[:staff_id]).first)
       redirect_to opportunity_quotation_path(@opportunity, @quotation)
     else
       @quotation = Quotation.new
@@ -35,17 +35,24 @@ class MissionsController < ApplicationController
 
   def update
     @mission = Mission.find(params[:id])
+    @quotation = Quotation.find(params[:quotation_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
     @mission.update(mission_params)
   end
 
   def show
+    @quotation = Quotation.find(params[:quotation_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
     @mission = Mission.find(params[:id])
+    @mission_staff = MissionStaff.where(mission_id: @mission.id)
   end
 
   def destroy
     @mission = Mission.find(params[:id])
     @mission.destroy
-    redirect_to missions_path
+    @quotation = Quotation.find(params[:quotation_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    redirect_to opportunity_quotation_path(@opportunity, @quotation)
   end
 
   private
