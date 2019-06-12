@@ -1,7 +1,7 @@
 class BusinessProposalsController < ApplicationController
   before_action :set_business_proposal, only: [:show, :edit, :update]
 
-  layout :pdf, only: :PDF
+  # layout :pdf, only: :PDF
 
   def index
     @business_proposals = BusinessProposal.all
@@ -30,7 +30,12 @@ class BusinessProposalsController < ApplicationController
   end
 
   def show
-
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "show", layout: "pdf.html" # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def PDF
