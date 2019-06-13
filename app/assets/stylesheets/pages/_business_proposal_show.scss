@@ -1,0 +1,80 @@
+.container-pdf{
+  margin: 0px 90px 0px 50px;
+}
+.container-pdf-more-margin{
+   margin: 0px 35px 0px 25px;
+
+}
+.btn-pdf-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.banner-proposal{
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url("security_memoire_banner.jpg" );
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: 40vh;
+  color: white;
+  font-size: bold;
+  background-size: cover;
+  //background-position:center center;
+  border-radius: 5px;
+  margin: 35px 0px 60px 0px;
+
+}
+.salesman{
+  display: flex;
+  justify-content: space-between;
+  margin: 35px 0px 0px 0px;
+  width: 30%;
+  background-color: rgba(240,240,240,0.9);
+  padding: 5px;
+  border-radius: 3px;
+}
+.client-info{
+  width: 30%;
+}
+.opportunity-name{
+  font-weight: bold;
+  font-size: 48px;
+}
+.container-left-margin{
+  margin-left: 30px;
+}
+.margin-h2{
+  margin-top: 60px;
+  color: #24009B;
+  font-weight: bold;
+}
+.margin-h3{
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+.about-and-map{
+  display:flex;
+}
+.mission-cards{
+  display:flex;
+  margin-top: 30px;
+}
+.mission-card{
+  display:flex;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  width: 900px;
+  margin-bottom: 30px;
+}
+.mission-card img{
+  margin: 10px 20px;
+}
+.mission-cards h5{
+  width: 13%;
+}
+h4.mission-description{
+  //text-decoration: underline;
+  font-size: 22px;
+}

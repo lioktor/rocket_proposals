@@ -54,6 +54,13 @@
           </tbody>
         </table>
 
+        <div>
+               <% if @quotation.business_proposal.present? %>
+               <%= link_to 'View your business proposal', quotation_business_proposal_path(@quotation) %>
+               <% else %>
+               <%= link_to 'Create a business proposal', quotation_business_proposals_path(@quotation), method: :post %>
+               <% end %>
+        </div>
 
     </div>
   </div>
