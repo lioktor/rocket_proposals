@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid">
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -90,6 +92,7 @@
                     Company name</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 255px;">Mission</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 112px;">Status</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 112px;">Selling price</th>
                   </tr>
                 </thead>
                 <!--  <tfoot>
@@ -99,13 +102,21 @@
                   <th rowspan="1" colspan="1">Status</th>
                   </tfoot> -->
                   <tbody>
-                    <% @user = current_user %>
-                    <% @opp = Opportunity.where(user_id: @user.id)%>
+                    <% @opp = Opportunity.where(user_id: current_user.id)%>
+
                     <% @opp.each do |opp| %>
                     <tr role="row" class="odd"  >
                       <td class="company-name" ><%= opp.client.company_name %></td>
                       <td ><%= opp.description %></td>
                       <td ><%= opp.status %></td>
+
+                      <% if  opp.quotations.present? %>
+                        <td ><%= number_with_delimiter((opp.quotations.first.selling_price), delimiter: " ") %>€</td>
+                      <% else %>
+                        <td ><%= "€" %></td>
+                      <% end %>
+
+
                       <% end %>
                     </tr>
                   </tbody>
@@ -128,36 +139,20 @@
             <div class="card shadow mb-4">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Objectives achievement</h6>
                 <div class="dropdown no-arrow">
                   <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
                 </div>
               </div>
+
+
               <!-- Card Body -->
               <div class="card-body">
-                <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                <canvas id="myPieChart" width="299" height="245" class="chartjs-render-monitor" style="display: block; width: 299px; height: 245px;"></canvas>
+                <%= pie_chart({ Done: current_user.objective_done, Remaining: current_user.annual_objective - current_user.objective_done}, donut: true) %>
               </div>
-              <div class="mt-4 text-center small">
-                <span class="mr-2">
-                  <i class="fas fa-circle text-primary"></i> Direct
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-success"></i> Social
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-info"></i> Referral
-                </span>
-              </div>
+
             </div>
           </div>
         </div>
@@ -166,4 +161,6 @@
       <div class="row">
         <!-- Content Column -->
         <div class="col-lg-6 mb-4">
+
         </div>
+

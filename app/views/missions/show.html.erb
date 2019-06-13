@@ -1,15 +1,23 @@
-<h5 class="m-0 font-weight-bold text-primary">Your Mission</h5>
 
-<p>Description :<%= @mission.description %></p>
+  <!-- Page Heading -->
+  <!-- Area Chart -->
+  <div class="col-xl-12 col-lg-7">
+    <div class="card shadow mb-4">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h5 class="m-0 font-weight-bold text-primary">Your Missions</h5>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+  <p>Description : <%= @mission.description %></p>
+  <%= render "list_staff" %>
+  <%= render "list_training" %>
+  <%= render "list_equipment" %>
 
 
-<%= render "list_staff" %>
-<%= render "list_training" %>
-<%= render "list_equipment" %>
+<%=  link_to opportunity_quotation_path(@mission.quotation.opportunity, @mission.quotation) do %>
+  <div class="btn btn-primary btn-lg">Validate this mission</div>
+<% end %>
 
-<ul class="list-unstyled">
-  <li> <%= link_to "Add a staff", new_mission_mission_staff_path(@mission)  %></li>
-  <li> <%= link_to "Add a training", new_mission_mission_training_path(@mission)  %></li>
-  <li> <%= link_to "Add an equipment", new_mission_mission_equipment_path(@mission)  %></li>
-  <li><%=  link_to "Validate this Mission", opportunity_quotation_path(@mission.quotation.opportunity, @mission.quotation) %></li>
-</ul>
+ </div>

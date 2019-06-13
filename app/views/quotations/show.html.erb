@@ -3,7 +3,7 @@
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h5 class="m-0 font-weight-bold text-primary">Missions</h5>
+      <h5 class="m-0 font-weight-bold text-primary">Quotation missions</h5>
         </div>
       </div>
     </div>
@@ -54,6 +54,7 @@
           </tbody>
         </table>
 
+
         <div>
                <% if @quotation.business_proposal.present? %>
                <%= link_to 'View your business proposal', quotation_business_proposal_path(@quotation) %>
@@ -61,6 +62,7 @@
                <%= link_to 'Create a business proposal', quotation_business_proposals_path(@quotation), method: :post %>
                <% end %>
         </div>
+
 
     </div>
   </div>

@@ -10,7 +10,7 @@
   <hr class="sidebar-divider my-0">
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-     <%= link_to(root_path, class: "nav-link") do %>
+     <%= link_to(pages_dashboard_path, class: "nav-link") do %>
       <i class="fas fa-fw fa-tachometer-alt"></i>
       Dashboard
       <% end %>
@@ -20,7 +20,7 @@
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
+        <!-- Interface -->
       </div>
       <!-- Nav Item - Pages Opportunities Collapse Menu  -->
       <li class="nav-item">
@@ -63,15 +63,13 @@
       </li>
 <!-- Nav Item - Pages Memoire Collapse Menu -->
        <li class="nav-item">
-        <%= link_to root_path, class: "nav-link" do %>
+        <%= link_to clients_path, class: "nav-link" do %>
           <i class="fa fa-briefcase" aria-hidden="true"></i>
           <span>Business Proposals</span>
         <% end %>
        <!--   Fiona_Remplacer 66 par le bon path -->
 
       </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider">
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
       <!-- Sidebar Toggler (Sidebar) -->

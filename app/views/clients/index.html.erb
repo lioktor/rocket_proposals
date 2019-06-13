@@ -8,21 +8,22 @@ placeholder: "Search for company" %>
 <% end %>
   <div class="main-container">
     <div class="cards">
-      <% @clients.each do |client| %>
-        <%= link_to client_path(client), style: "text-decoration: none;" do %>
-          <div class="card-category align-items-center" style="">
-                  <%= cl_image_tag(client.company_picture, :width=>250, :height=>150, :radius=>150) %>
-
-          </div>
-        <% end %>
-      <% end %>
-
       <%= link_to new_client_path, class: "btn btn-primary d-flex align-items-center justify-content-around new-company" do %>
           <div class="">
               <h2><i class="fas fa-plus"></i></h2>
               <p>Add new Company</p>
           </div>
       <% end %>
+      <% @clients.each do |client| %>
+        <%= link_to client_path(client), style: "text-decoration: none;" do %>
+          <div class="card-category d-flex justify-content-around align-items-center" style="">
+                  <%= cl_image_tag(client.company_picture, :width=>150) %>
+
+          </div>
+        <% end %>
+      <% end %>
+
+
     </div>
     <div
       id="map"

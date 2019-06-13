@@ -7,7 +7,7 @@
 
   <li>Name: <%= @client.company_name  %></li>
   <li>SIRET: <%= @client.company_SIRET %></li>
-  <li><%= cl_image_tag @client.company_picture, height: 300, width: 400, crop: :fill %></li>
+  <li><%= cl_image_tag @client.company_picture, width: 400 %></li>
   <li>Address: <%= @client.company_address %></li>
   <li>Sector of activity: <%= @client.activity_sector %></li>
 
