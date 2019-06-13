@@ -13,6 +13,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem 'wkhtmltopdf-binary'#, :git => "https://github.com/zinsbaustein/wkhtmltopdf_binary_gem.git", :branch => "update_to_0.12.5"
 gem 'wicked_pdf'
+gem "chartkick"
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
