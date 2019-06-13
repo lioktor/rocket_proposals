@@ -1,7 +1,37 @@
-<ul>Trainings
+<div class="d-flex align-items-center justify-content-between my-4">
+  <h3>Training</h3>
+  <%= link_to new_mission_mission_staff_path(@mission) do %>
+  <div class="btn btn-primary">
+    <i class="fas fa-plus"></i> Add Training
+  </div>
+  <% end %>
+</div>
+
 <% @mission.mission_trainings.each do |mission_training| %>
- <li>Category: <%= mission_training.training.category  %>, Description: <%= mission_training.training.description %>, Cost: <%= mission_training.training.educational_cost %>€, Duration: <%= mission_training.training.duration %> days</li>
-
+<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+  <thead>
+    <tr role="row">
+      <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 148px;">
+        Category
+      </th>
+      <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 172px;">
+      Description</th>
+      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 207px;">
+        Cost
+      </th>
+      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 207px;">
+        Duration
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr role="row" class="odd">
+      <!-- <td class="sorting_1 company-name"></td> -->
+      <td><%= mission_training.training.category  %></td>
+      <td><%= mission_training.training.description %></td>
+      <td><%= mission_training.training.educational_cost %>€</td>
+      <td><%= mission_training.training.duration %> days</td>
+    </tr>
+  </tbody>
+</table>
 <% end %>
-</ul>
-
