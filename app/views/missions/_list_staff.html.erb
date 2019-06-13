@@ -1,5 +1,40 @@
-<ul>Staffs
+<div class="d-flex align-items-center justify-content-between my-4">
+  <h3>Staff</h3>
+        <%= link_to new_mission_mission_staff_path(@mission) do %>
+        <div class="btn btn-primary">
+          <i class="fas fa-plus"></i> Add Staff
+        </div>
+        <% end %>
+</div>
+
+
 <% @mission.mission_staffs.each do |mission_staff| %>
- <li>  Category: <%= mission_staff.staff.category  %>, Description: <%= mission_staff.staff.description %>, Worked hourly rate: <%= mission_staff.staff.worked_time_hourly_rate%>€, Non-worked hourly rate <%= mission_staff.staff.closed_time_hourly_rate%>€  </li>
+<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+  <thead>
+    <tr role="row">
+      <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 148px;">
+        Category
+      </th>
+      <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Action: activate to sort column descending" style="width: 172px;">
+      Description</th>
+      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 207px;">
+        Worked hourly rate
+      </th>
+      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Co logo: activate to sort column ascending" style="width: 207px;">
+        Non-worked hourly rate
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr role="row" class="odd">
+      <!-- <td class="sorting_1 company-name"></td> -->
+      <td><%= mission_staff.staff.category  %></td>
+      <td><%= mission_staff.staff.description %></td>
+      <td><%= mission_staff.staff.worked_time_hourly_rate%>€</td>
+      <td><%= mission_staff.staff.closed_time_hourly_rate%>€</td>
+
+    </tr>
+  </tbody>
+</table>
 <% end %>
-</ul>
