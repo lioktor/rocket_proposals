@@ -1,1 +1,21 @@
+.home {
+  height: 100vh;
+  background: #1488cc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3158C9, #2b32b2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3158C9, #2b32b2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+.home h1 {
+  font-family: 'Nunito', sans-serif;
+}
+
+.home img {
+  width: 200px;
+}
+
+.home p {
+  margin-bottom: 50px;
+  font-size: 20px;
+}
 
