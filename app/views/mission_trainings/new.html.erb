@@ -4,8 +4,8 @@
     <h5 class="m-0 font-weight-bold text-primary">Choose your Training</h5>
         <%= simple_form_for [@mission, @mission_training] do |f| %>
         <%= f.input :mission_id, :input_html => { value: @mission.id}, as: :hidden %>
+         <%= f.input :training_id, collection: @trainings, label_method: :category %>
          <%= f.input :quantity %>
-        <%= f.input :training_id, collection: @trainings, label_method: :category %>
           <%= f.submit 'Add this training', class: "btn btn-primary"%>
         <% end %>
     </div>
