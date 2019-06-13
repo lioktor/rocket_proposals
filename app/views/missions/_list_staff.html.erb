@@ -1,5 +1,5 @@
-<ul>
+<ul>Staffs
 <% @mission.mission_staffs.each do |mission_staff| %>
- <li>  <%= mission_staff.staff.category  %> </li>
+ <li>  Category: <%= mission_staff.staff.category  %>, Description: <%= mission_staff.staff.description %>, Worked hourly rate: <%= mission_staff.staff.worked_time_hourly_rate%>€, Non-worked hourly rate <%= mission_staff.staff.closed_time_hourly_rate%>€  </li>
 <% end %>
 </ul>

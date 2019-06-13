@@ -1,5 +1,5 @@
-<ul>
+<ul> Equipments
 <% @mission.mission_equipments.each do |mission_equipment| %>
- <li> <%= mission_equipment.equipment.description  %> </li>
+ <li> Category: <%= mission_equipment.equipment.category  %>, Description: <%= mission_equipment.equipment.description  %>, cost:  <%= mission_equipment.equipment.cost  %>€</li>
 <% end %>
 </ul>

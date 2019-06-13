@@ -1,6 +1,6 @@
-<ul>
+<ul>Trainings
 <% @mission.mission_trainings.each do |mission_training| %>
- <li><%= mission_training.training.category  %> </li>
+ <li>Category: <%= mission_training.training.category  %>, Description: <%= mission_training.training.description %>, Cost: <%= mission_training.training.educational_cost %>€, Duration: <%= mission_training.training.duration %> days</li>
 
 <% end %>
 </ul>
