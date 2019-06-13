@@ -5,11 +5,11 @@
 <ul class="list-unstyled mr-5">
   <h5 class="h3 mb-4 font-weight-bold text-primary">Company</h5>
 
-  <li>Name: <%= @client.company_name  %></li>
-  <li>SIRET: <%= @client.company_SIRET %></li>
+  <li><strong>Name: </strong><%= @client.company_name  %></li>
+  <li><strong>SIRET: </strong><%= @client.company_SIRET %></li>
   <li><%= cl_image_tag @client.company_picture, width: 400 %></li>
-  <li>Address: <%= @client.company_address %></li>
-  <li>Sector of activity: <%= @client.activity_sector %></li>
+  <li><strong>Address:</strong> <%= @client.company_address %></li>
+  <li><strong>Sector of activity:</strong> <%= @client.activity_sector %></li>
 
   </ul>
 </div>
@@ -19,13 +19,13 @@
 
 
   <h5 class="h3 mb-4 font-weight-bold text-primary">Contact</h5>
-  <li>First name:<%= @client.first_name %></li>
-  <li>Last name: <%= @client.last_name %></li>
-  <li>email: <%= @client.email %></li>
-  <li>Phone: <%= @client.phone %></li>
-  <li>LinkedIn: <%= link_to @client.linkedin %></li>
-  <li>Category: <%= @client.category %></li>
-  <li>Function: <%= @client.function %></li>
+  <li><strong>First name:</strong><%= @client.first_name %></li>
+  <li><strong>Last name:</strong><%= @client.last_name %></li>
+  <li><strong>email:</strong><%= @client.email %></li>
+  <li><strong>Phone:</strong><%= @client.phone %></li>
+  <li><strong>LinkedIn:</strong><%= link_to @client.linkedin %></li>
+  <li><strong>Category:</strong><%= @client.category %></li>
+  <li><strong>Function:</strong><%= @client.function %></li>
 </ul>
 </div>
 </div>

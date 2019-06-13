@@ -1,21 +1,24 @@
 
-          <h5 class="h3 mb-4 font-weight-bold text-primary">Let's create a new client</h5>
+          <h5 class="h3 mb-4 font-weight-bold text-primary">Let's Create a New Client</h5>
+
+
             <p>Please complete:</p>
             <div class="narrow-form">
               <%= simple_form_for @client do |f| %>
 
-              <h5 class="h3 mb-4 font-weight text-primary">Company</h5>
+              <h5 class="h3 mb-4 font-weight text-primary"><strong>Company</strong></h5>
 
-              <%= f.input :company_SIRET, label: false, placeholder: 'Company Resistration Number' %>
+              <%= f.input :company_SIRET, label: false, placeholder: 'Company Registration Number' %>
               <%= f.input :company_name, label: false, placeholder: 'Company Name' %>
               <%= f.input :company_picture, label: false, input_html: { class: "hidden" } %>
               <div class="btn btn-primary" id="company-picture">
                 Company Logo
+
               </div>
               <%= f.input :company_picture_cache, as: :hidden %>
               <%= f.input :company_address, label: false, placeholder: 'Company address' %>
               <%= f.input :activity_sector, label: false, placeholder: 'Company Sector' %>
-              <h5 class="h3 mb-4 font-weight text-primary">Contact</h5>
+              <h5 class="h3 mb-4 font-weight text-primary"><strong>Contact</strong></h5>
               <%= f.input :first_name, label: false, placeholder: 'First name'  %>
               <%= f.input :last_name, label: false, placeholder: 'Last name'  %>
               <%= f.input :email, label: false, placeholder: 'Email'  %>
