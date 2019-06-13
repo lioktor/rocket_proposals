@@ -45,11 +45,11 @@ client_A = Client.create!(first_name: "Eric", last_name: "Durand", email: "eric.
 client_A.remote_company_picture_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1560159449/posr9zt2gqerl2okekji.png"
 client_A.save!
 
-client_B = Client.create!(first_name: "Didier", last_name: "Martin", email: "didier.martin@totall.com", phone: "07 65 78 65 78", linkedin: "",
-           category: "Technical", function: "Security manager", company_name: "Total", company_SIRET: 43953501400013,
-           company_address: "Feyzin", activity_sector: "Petrochemistry", user_id: user_B.id, latitude: 45.6738, longitude: 4.85831)
-client_B.remote_company_picture_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1559727721/p36ypk5cqscd7wdkbm9i.jpg"
-client_B.save!
+# client_B = Client.create!(first_name: "Didier", last_name: "Martin", email: "didier.martin@totall.com", phone: "07 65 78 65 78", linkedin: "",
+#            category: "Technical", function: "Security manager", company_name: "Total", company_SIRET: 43953501400013,
+#            company_address: "Feyzin", activity_sector: "Petrochemistry", user_id: user_B.id, latitude: 45.6738, longitude: 4.85831)
+# client_B.remote_company_picture_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1560256779/jkxvvjeaweg3grntdlcm.png"
+# client_B.save!
 
 client_C = Client.create!(first_name: "Chris", last_name: "Ramo", email: "Chris.ramo@iterr.com", phone: "07 89 76 54 23", linkedin: "",
            category: "Technical", function: "Safety Director", company_name: "Iter", company_SIRET: 82356718400029,
@@ -91,7 +91,7 @@ client_H = Client.create!(first_name: "Laurent", last_name: "Vitalo", email: "la
            category: "Technical", function: "Responsible for CCTV systems", company_name: "Ministère de l'Intérieur", company_SIRET: 86536718400029,
            company_address: "Issy-les-Moulineaux", activity_sector: "Public",
            user_id: user_B.id, latitude: 48.8231, longitude: 2.26924)
-client_H.remote_company_picture_url = ""
+client_H.remote_company_picture_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1560258318/q6o4kabtvsylr9bu7xxh.png"
 client_H.save!
 
 client_I = Client.create!(first_name: "Andrea", last_name: "Pirlu", email: "andrea.pirlu@stadedefrance.fr", phone: "01 76 45 78 65", linkedin: "",
@@ -120,7 +120,7 @@ opportunity_C = Opportunity.create!(name: "Securising the Marseille IGH", descri
 opportunity_D = Opportunity.create!(name: "Security and safety contract", description: "The current provider went bankrupt, so the client needs to find a new provider", question_1: "Light proposal", question_2: "Industrial", question_3: "Yes",
                 status: "Pending", client_id: client_A.id, user_id: user_B.id)
 opportunity_E = Opportunity.create!(name: "Protect people during the family day", description: "The client needs to have several security staffs to securise the family day event", question_1: "Light proposal", question_2: "Industrial", question_3: "Yes",
-                status: "Lost", client_id: client_B.id, user_id: user_B.id)
+                status: "Lost", client_id: client_A.id, user_id: user_B.id)
 opportunity_F = Opportunity.create!(name: "Ensuring the safety for workers", description: "During the Tokamak construction phase, Iter wants to ensure the workers safety thanks to experienced safety staff ", question_1: "Full proposal", question_2: "Industrial", question_3: "Yes",
                 status: "Won", client_id: client_C.id, user_id: user_B.id)
 
@@ -201,11 +201,11 @@ staff_C.save!
 puts "creating training "
 
 training_A = Training.create!(category: "CT CERIC from CNPP", description: "Training to know how to secure a site efficiently", educational_cost: "300", duration: "2")
-training_A.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1559727909/be5glelqxfjgekhqmz8o.png"
+training_A.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1560441411/e5vkibrvyqfnsiethc2p.png"
 training_A.save!
 
 training_B = Training.create!(category: "SSIAP training", description: "Training to manipulate extinguishers and to know fire legislation", educational_cost: "500", duration: "5")
-training_B.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1559727945/h54sajtohtsrpvmnczug.png"
+training_B.remote_icon_url = "https://res.cloudinary.com/dmeiwlskm/image/upload/v1560441545/hsca4esxj3iivtokrfzv.png"
 training_B.save!
 
 puts "creating mission staff equipement and training "
