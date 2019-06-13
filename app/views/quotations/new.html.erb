@@ -4,8 +4,8 @@
     <h5 class="m-0 font-weight-bold text-primary">New Quotation</h5>
       <%= simple_form_for [@opportunity, @quotation] do |f| %>
       <%= f.input :margin_rate%>
-      <%= f.input :starting_date%>
-      <%= f.input :end_date%>
+      <%= f.input :starting_date, as: :date, html5: true%>
+      <%= f.input :end_date,as: :date, html5: true%>
       <%= f.submit 'Create a mission', class: "btn btn-primary"%>
       <% end %>
     </div>
