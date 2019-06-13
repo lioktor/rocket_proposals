@@ -5,15 +5,15 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :company, input_html: {value: @client.company_name}%>
-  <%= f.input :question_1,
+  <%= f.input :question_1,  :label => "Business Proposal type",
                 required: true,
                 collection: ["Only quotation", "Light proposal", "Full proposal"],
                 input_html: { autocomplete: "question_1" }  %>
-    <%= f.input :question_2 ,
+    <%= f.input :question_2 ,:label => "Type of site",
                 required: true,
                 collection: ["Industrial", "Tertiary", "Events"],
                 input_html: { autocomplete: "question_2" } %>
-    <%= f.input :question_3 ,
+    <%= f.input :question_3 ,:label => "Include terms & conditions?",
                 required: true,
                 collection: ["Yes", "No"],
                 input_html: { autocomplete: "question_3" } %>
