@@ -150,7 +150,9 @@
 
               <!-- Card Body -->
               <div class="card-body">
+                <% if  current_user.objective_done.present? %>
                 <%= pie_chart({ Done: current_user.objective_done, Remaining: current_user.annual_objective - current_user.objective_done}, donut: true) %>
+                <% end %>
               </div>
 
             </div>

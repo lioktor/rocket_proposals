@@ -13,22 +13,22 @@
                 required: true,
                 input_html: { autocomplete: "company" } %>
     <%= f.input :function,
-                required: true,
+                #required: true,
                 input_html: { autocomplete: "function" } %>
     <%= f.input :linkedin,
-                required: true,
+                #required: true,
                 input_html: { autocomplete: "linkedin" } %>
     <%= f.input :avatar,
                 as: :file,
                 required: true,
                 input_html: { autocomplete: "avatar" } %>
     <%= f.input :category,
-                required: true,
+                #required: true,
                 collection: ["Salesman", "Manager"],
                 input_html: { autocomplete: "category" } %>
     <%= f.input :manager_id,
                 collection: User.where(category: "Manager"),
-                required: true,
+                #required: true,
                 input_html: { autocomplete: "xxxx" } %>
     <%= f.input :email,
                 required: true,
