@@ -9,7 +9,7 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'geocoder'
 gem 'wkhtmltopdf-binary'#, :git => "https://github.com/zinsbaustein/wkhtmltopdf_binary_gem.git", :branch => "update_to_0.12.5"
 gem 'wicked_pdf'
